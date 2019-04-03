@@ -1,4 +1,4 @@
-package application.entities;
+package application.database.entities;
 
 public class Customer extends Person {
 	private int Rating;

@@ -1,4 +1,4 @@
-package application.entities;
+package application.database.entities;
 
 public abstract class Person extends DatabaseEntity {
 	
