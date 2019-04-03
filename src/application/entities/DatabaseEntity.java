@@ -1,4 +1,4 @@
-package Entities;
+package application.entities;
 
 public abstract class DatabaseEntity {
 	private int Id;

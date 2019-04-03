@@ -1,4 +1,4 @@
-package Entities;
+package application.entities;
 
 public class Customer extends Person {
 	private int Rating;

@@ -1,4 +1,4 @@
-package Entities;
+package application.entities;
 
 public class Location extends DatabaseEntity {
 	private String Street;

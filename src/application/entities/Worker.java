@@ -1,4 +1,4 @@
-package Entities;
+package application.entities;
 
 public class Worker extends Person {
 	private int Age;

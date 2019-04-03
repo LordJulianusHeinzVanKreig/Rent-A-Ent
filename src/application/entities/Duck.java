@@ -1,4 +1,4 @@
-package Entities;
+package application.entities;
 
 public class Duck extends DatabaseEntity {
 	private int Age;
