@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Apr 2019 um 13:33
+-- Erstellungszeit: 03. Apr 2019 um 14:11
 -- Server-Version: 10.1.36-MariaDB
 -- PHP-Version: 7.2.10
 
@@ -68,6 +68,13 @@ CREATE TABLE `ducktype` (
   `maxAge` int(11) NOT NULL,
   `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Daten für Tabelle `ducktype`
+--
+
+INSERT INTO `ducktype` (`breedTime`, `region`, `maxAge`, `ID`) VALUES
+('0000-00-00', 'Oberpfalz', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +166,7 @@ ALTER TABLE `ducks`
 -- AUTO_INCREMENT für Tabelle `ducktype`
 --
 ALTER TABLE `ducktype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`
