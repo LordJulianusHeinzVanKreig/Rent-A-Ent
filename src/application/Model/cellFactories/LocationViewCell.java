@@ -9,7 +9,7 @@ public class LocationViewCell extends ListCell<Location>{
 	public void updateItem(Location location, boolean empty) {
 		super.updateItem(location, empty);
 		if(!empty) {
-			setText(location.getStreet() +"");
+			setText(location.getStreet());
 			
 		}
 	}

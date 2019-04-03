@@ -14,6 +14,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("EntenView.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("RENT-A-ENT");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

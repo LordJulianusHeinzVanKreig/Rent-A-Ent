@@ -9,7 +9,7 @@ public class WorkerViewCell extends ListCell<Worker> {
 	public void updateItem(Worker worker, boolean empty) {
 		super.updateItem(worker, empty);
 		if(!empty) {
-			setText(worker.getStreet() +"");	
+			setText(worker.getLastName());
 		}
 	}
 }
