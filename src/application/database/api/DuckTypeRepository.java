@@ -9,13 +9,23 @@ import application.database.entities.DuckType;
 
 public class DuckTypeRepository {
 	
+	private static LinkedList<String> props = new LinkedList<String>() {
+		{			
+			add("ID");
+			add("breedTime");
+			add("region");
+			add("maxAge");
+		}
+	};
+	
 	public static List<DuckType> getAllDuckTypes() throws SQLException {
 		List<DuckType> dts = new LinkedList<DuckType>();
-		ResultSet results = SqlQuery.SQL_selectAll(DatabaseMetadata.Tables.DuckTypes);
+		
+		ResultSet results = SqlQuery.SQL_selectProperties(DatabaseMetadata.Tables.DuckTypes, props);
 		
 		while(results.next())
 		{
-			dts.add(new DuckType(results.getInt(4), results.getDate(1), results.getString(2), results.getInt(3)));
+			dts.add(new DuckType(results.getInt(1), results.getDate(2), results.getString(3), results.getInt(4)));
 		}
 		
 		return dts;
@@ -24,7 +34,7 @@ public class DuckTypeRepository {
 	public static DuckType getDuckTypeById(int id) throws SQLException {
 		DuckType dt = null;
 		
-		ResultSet results = SqlQuery.SQL_selectAll(DatabaseMetadata.Tables.DuckTypes);
+		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.DuckTypes, id, props);
 
 		if(results.next()) {
 			dt = new DuckType(results.getInt(4), results.getDate(1), results.getString(2), results.getInt(3));

@@ -14,6 +14,7 @@ public class DatabaseMetadata {
 //	}
 	
 	public class Tables {
-		public static final String DuckTypes = "ducktypes";
+		public static final String DuckTypes = "ducktype";
+		public static final String Locations = "location";
 	}
 }
