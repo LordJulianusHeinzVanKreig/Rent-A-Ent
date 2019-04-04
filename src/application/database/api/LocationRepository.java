@@ -12,9 +12,9 @@ public class LocationRepository {
 	private static LinkedList<String> props = new LinkedList<String>() {
 		{			
 			add("ID");
-			add("breedTime");
-			add("region");
-			add("maxAge");
+			add("street");
+			add("zipCode");
+			add("houseNumber");
 		}
 	};
 	
@@ -34,7 +34,7 @@ public class LocationRepository {
 	public static Location getLocationById(int id) throws SQLException {
 		Location dt = null;
 		
-		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.DuckTypes, id, props);
+		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.Locations, id, props);
 
 		if(results.next()) {
 			dt = new Location(results.getInt(1), results.getString(2), results.getInt(3), results.getString(4));

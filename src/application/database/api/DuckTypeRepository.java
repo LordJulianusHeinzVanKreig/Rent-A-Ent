@@ -37,7 +37,7 @@ public class DuckTypeRepository {
 		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.DuckTypes, id, props);
 
 		if(results.next()) {
-			dt = new DuckType(results.getInt(4), results.getDate(1), results.getString(2), results.getInt(3));
+			dt = new DuckType(results.getInt(1), results.getDate(2), results.getString(3), results.getInt(4));
 		}
 		
 		return dt;

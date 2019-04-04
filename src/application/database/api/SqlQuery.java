@@ -21,7 +21,7 @@ public class SqlQuery {
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;
@@ -39,7 +39,7 @@ public class SqlQuery {
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;		
@@ -57,7 +57,7 @@ public class SqlQuery {
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;		
@@ -76,7 +76,26 @@ public class SqlQuery {
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
+	public static ResultSet SQL_selectPropertiesWhere(String tabelle, List<String> properties, String whereCondition)
+	{
+		ResultSet rs = null;
+		
+		try 
+		{
+			
+			String abfrage = "SELECT " + buildPropertiesString(properties) + " FROM " + SqlConnector.Database + "." + tabelle + " where " + whereCondition + ";";
+			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
+			
+		}
+		catch (SQLException ex) 
+		{
+			ex.printStackTrace();
 		}
 		
 		return rs;

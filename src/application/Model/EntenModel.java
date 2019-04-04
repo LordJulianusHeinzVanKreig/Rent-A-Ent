@@ -16,7 +16,6 @@ import javafx.util.Callback;
 
 public class EntenModel  {
 	
-	
 	@FXML
 	ListView<Location> listLocations;
 	@FXML
