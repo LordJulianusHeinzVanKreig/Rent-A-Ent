@@ -25,4 +25,22 @@ public class SqlQuery {
 		
 		return rs;
 	}
+	
+	public static ResultSet SQL_selectById(String tabelle, int id) {
+		ResultSet rs = null;
+		
+		try 
+		{
+			
+			String abfrage = "SELECT * FROM " + SqlConnector.Database + "." + tabelle + " where ID = " + id + ";";
+			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
+			
+		}
+		catch (SQLException ex) 
+		{
+			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		
+		return rs;		
+	}
 }
