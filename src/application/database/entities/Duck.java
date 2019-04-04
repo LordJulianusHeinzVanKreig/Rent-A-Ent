@@ -6,7 +6,14 @@ public class Duck extends DatabaseEntity {
 	private String Description;
 	private int Temperament;
 	private boolean Gender;
+	private DuckType Type;
 	
+	public DuckType getType() {
+		return Type;
+	}
+	public void setType(DuckType type) {
+		this.Type = type;
+	}
 	public int getAge() {
 		return Age;
 	}
@@ -38,12 +45,13 @@ public class Duck extends DatabaseEntity {
 		Gender = gender;
 	}
 	
-	public Duck(int id, int age, String name, String description, int temperament, boolean gender) {
+	public Duck(int id, int age, String name, String description, int temperament, boolean gender, DuckType type) {
 		super(id);
 		Age = age;
 		Name = name;
 		Description = description;
 		Temperament = temperament;
 		Gender = gender;
+		Type = type;
 	}
 }
