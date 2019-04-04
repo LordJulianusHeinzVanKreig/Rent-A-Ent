@@ -4,6 +4,7 @@ import application.Model.cellFactories.DuckViewCell;
 import application.Model.cellFactories.LocationViewCell;
 import application.Model.cellFactories.WorkerViewCell;
 import application.database.entities.Duck;
+import application.database.entities.DuckType;
 import application.database.entities.Location;
 import application.database.entities.Worker;
 import javafx.event.ActionEvent;
@@ -25,7 +26,7 @@ public class EntenModel  {
 	
 	@FXML
 	public void handleOnClickListLocations(MouseEvent event) {
-		listDucks.getItems().add(new Duck(1, 2, "kevin", "stinks", 500, true));
+		listDucks.getItems().add(new Duck(1, 2, "kevin", "nachui", 500, true, new DuckType(1, null, "Unterhinterkirchen", Integer.MAX_VALUE)));
 		listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
 			@Override
 			public ListCell<Duck> call(ListView<Duck> listDucks){
@@ -44,7 +45,7 @@ public class EntenModel  {
 	@FXML
 	public void handleOnClickListDucks() {
 		Duck selectedDuck =	listDucks.getSelectionModel().getSelectedItem();
-		new DuckDetailModel(selectedDuck).startDuckDetailStage();
+		new DuckDetailModel().startDuckDetailStage();
 	}
 	
 	@FXML 
