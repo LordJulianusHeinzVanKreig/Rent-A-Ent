@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -26,26 +27,12 @@
                            <children>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text layoutX="40.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="DuckDetailName" layoutX="177.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Text layoutX="41.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alter:">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="DuckDetailAge" layoutX="193.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                    <Text fx:id="DuckDetailName" layoutX="175.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -54,26 +41,12 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text layoutX="43.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Geschlecht:">
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alter:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="DuckDetailGender" layoutX="214.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <Text layoutX="45.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperament:">
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="DuckDetailTemperament" layoutX="215.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                    <Text fx:id="DuckDetailAge" layoutX="175.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -82,12 +55,12 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text layoutX="50.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung:">
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Geschlecht:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="DuckDetailDescription" layoutX="218.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                    <Text fx:id="DuckDetailGender" layoutX="175.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -96,16 +69,36 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text layoutX="44.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ:">
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperament:">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <Text fx:id="DuckDetialType" layoutX="223.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                    <Text fx:id="DuckDetailTemperament" layoutX="175.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextArea fx:id="DuckDetailType" layoutX="154.0" layoutY="6.0" prefHeight="50.0" prefWidth="150.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextArea fx:id="DuckDetailDescription" layoutX="154.0" layoutY="6.0" prefHeight="50.0" prefWidth="150.0" />
                                  </children>
                               </AnchorPane>
                            </children>
