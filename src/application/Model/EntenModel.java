@@ -3,9 +3,9 @@ package application.Model;
 import application.Model.cellFactories.DuckViewCell;
 import application.Model.cellFactories.LocationViewCell;
 import application.Model.cellFactories.WorkerViewCell;
-import application.entities.Duck;
-import application.entities.Location;
-import application.entities.Worker;
+import application.database.entities.Duck;
+import application.database.entities.Location;
+import application.database.entities.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
@@ -43,7 +43,8 @@ public class EntenModel  {
 	
 	@FXML
 	public void handleOnClickListDucks() {
-		
+		Duck selectedDuck =	listDucks.getSelectionModel().getSelectedItem();
+		new DuckDetailModel(selectedDuck).startDuckDetailStage();
 	}
 	
 	@FXML 

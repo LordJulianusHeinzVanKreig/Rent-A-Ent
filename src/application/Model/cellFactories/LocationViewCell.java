@@ -1,6 +1,6 @@
 package application.Model.cellFactories;
 
-import application.entities.Location;
+import application.database.entities.Location;
 import javafx.scene.control.ListCell;
 
 public class LocationViewCell extends ListCell<Location>{

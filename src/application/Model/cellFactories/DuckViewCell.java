@@ -1,6 +1,6 @@
 package application.Model.cellFactories;
 
-import application.entities.Duck;
+import application.database.entities.Duck;
 import javafx.scene.control.ListCell;
 
 public class DuckViewCell extends ListCell<Duck>{
