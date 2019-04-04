@@ -1,6 +1,6 @@
 package application.Model.cellFactories;
 
-import application.entities.Worker;
+import application.database.entities.Worker;
 import javafx.scene.control.ListCell;
 
 public class WorkerViewCell extends ListCell<Worker> {
