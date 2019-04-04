@@ -9,14 +9,17 @@ import application.database.entities.Location;
 
 public class LocationRepository {
 	
+	private static LinkedList<String> props = new LinkedList<String>() {
+		{			
+			add("ID");
+			add("breedTime");
+			add("region");
+			add("maxAge");
+		}
+	};
+	
 	public static List<Location> getAllLocations() throws SQLException {
 		List<Location> locations = new LinkedList<Location>();
-
-		LinkedList<String> props = new LinkedList<String>();
-		props.add("ID");
-		props.add("street");
-		props.add("zipCode");
-		props.add("houseNumber");
 
 		ResultSet results = SqlQuery.SQL_selectProperties(DatabaseMetadata.Tables.Locations, props);
 		
@@ -30,12 +33,6 @@ public class LocationRepository {
 	
 	public static Location getLocationById(int id) throws SQLException {
 		Location dt = null;
-		
-		LinkedList<String> props = new LinkedList<String>();
-		props.add("ID");
-		props.add("street");
-		props.add("zipCode");
-		props.add("houseNumber");
 		
 		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.DuckTypes, id, props);
 
