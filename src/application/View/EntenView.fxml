@@ -1,80 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Model.EntenModel">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane fx:id="MainView" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane prefHeight="67.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rent-A-Ent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <font>
-                              <Font size="31.0" />
-                           </font></Text>
+                              <Font size="26.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="309.0" prefWidth="600.0">
+                  <AnchorPane prefHeight="462.0" prefWidth="600.0">
                      <children>
-                        <TabPane prefHeight="309.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                          <tabs>
-                            <Tab text="Location">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <HBox prefHeight="331.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="331.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <SplitPane dividerPositions="0.29797979797979796" prefHeight="280.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <items>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Text layoutX="67.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Standorte" AnchorPane.bottomAnchor="15.2353515625" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0634765625" AnchorPane.topAnchor="14.8134765625">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="432.0" prefWidth="199.0">
+                                             <children>
+                                                <ListView fx:id="listLocations" onMouseClicked="#handleOnClickListLocations" prefHeight="282.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="331.0" prefWidth="402.0">
+                                 <children>
+                                    <VBox prefHeight="331.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane prefHeight="57.0" prefWidth="401.0">
+                                             <children>
+                                                <Button layoutX="162.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleButton" text="Button" />
+                                             </children></AnchorPane>
+                                          <AnchorPane prefHeight="275.0" prefWidth="401.0">
+                                             <children>
+                                                <HBox prefHeight="275.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <children>
-                                                      <ListView prefHeight="278.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                                   <children>
-                                                      <VBox prefHeight="278.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                          <children>
-                                                            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                                                            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                                            <VBox prefHeight="275.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Text layoutX="89.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane prefHeight="425.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <ListView fx:id="listDucks" onMouseClicked="#handleOnClickListDucks" prefHeight="250.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </VBox>
                                                          </children>
-                                                      </VBox>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                         <children>
+                                                            <VBox prefHeight="275.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <children>
+                                                                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mitarbeiter" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                                  <AnchorPane prefHeight="428.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <ListView fx:id="listWorkers" onMouseClicked="#handleOnClickListWorkers" prefHeight="252.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </AnchorPane>
                                                    </children>
-                                                </AnchorPane>
-                                            </items>
-                                          </SplitPane>
-                                       </children></AnchorPane>
-                              </content>
-                            </Tab>
-                            <Tab text="DuckType">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                            </Tab>
-                              <Tab text="Customer">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                </content>
-                              </Tab>
-                              <Tab text="Duck">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                </content>
-                              </Tab>
-                              <Tab text="Worker">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
+                                                </HBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
                </children>
