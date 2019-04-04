@@ -3,6 +3,7 @@ package application.database.api;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,5 +43,27 @@ public class SqlQuery {
 		}
 		
 		return rs;		
+	}
+	
+	public static ResultSet SQL_selectProperties(String tabelle, List<String> properties)
+	{
+		ResultSet rs = null;
+		
+		try 
+		{
+			String props = "";
+			for (String string : properties) {
+				props += string;
+			}
+			String abfrage = "SELECT " + props + " FROM " + SqlConnector.Database + "." + tabelle + ";";
+			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
+			
+		}
+		catch (SQLException ex) 
+		{
+			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		
+		return rs;
 	}
 }
