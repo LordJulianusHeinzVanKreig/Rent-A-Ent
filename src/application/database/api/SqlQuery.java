@@ -52,8 +52,8 @@ public class SqlQuery {
 		try 
 		{
 			String props = "";
-			for (String string : properties) {
-				props += string;
+			for (int i = 0; i < properties.size() - 1; i++) {
+				props += properties.get(i) + ", ";
 			}
 			String abfrage = "SELECT " + props + " FROM " + SqlConnector.Database + "." + tabelle + ";";
 			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
