@@ -101,6 +101,25 @@ public class SqlQuery {
 		return rs;
 	}
 	
+	public static ResultSet SQL_insertProperties(String tabelle, List<String> properties, List<String> data) 
+	{
+		ResultSet rs = null;
+		
+		try
+		{
+			String abfrage = "INSERT INTO " + SqlConnector.Database + "." + tabelle + 
+					" (" + buildPropertiesString(properties) + ") VALUES (" + buildDataString(data) + ");";
+			SqlConnector.Connection.createStatement().execute(abfrage);
+			//rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
+		}
+		catch (SQLException ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
 	private static String buildPropertiesString(List<String> properties) {
 		String props = "";
 		for (int i = 0; i < properties.size() - 1; i++) {
@@ -108,5 +127,14 @@ public class SqlQuery {
 		}
 		props += properties.get(properties.size()-1);
 		return props;
+	}
+	
+	private static String buildDataString(List<String> data) {
+		String dataString = "'";
+		for (int i = 0; i < data.size() - 1; i++) {
+			dataString += data.get(i) + "', '";
+		}
+		dataString += data.get(data.size()-1) + "'";
+		return dataString;		
 	}
 }
