@@ -9,10 +9,8 @@ import application.database.entities.Customer;
 import application.database.entities.DuckType;
 
 public class CustomerRepository {
-	public static List<Customer> getAllCustomer() throws SQLException {
-		List<Customer> dts = new LinkedList<Customer>();
-		List<String> props = new LinkedList<String>();
-
+	private static LinkedList<String> props = new LinkedList<String>() {
+		{
 		props.add("ID");
 		props.add("firstName");
 		props.add("lastName");
@@ -20,6 +18,14 @@ public class CustomerRepository {
 		props.add("zipCode");
 		props.add("street");
 		props.add("phoneNumber");
+	}
+	};
+
+	
+	
+	public static List<Customer> getAllCustomer() throws SQLException {
+		List<Customer> dts = new LinkedList<Customer>();
+		
 
 		ResultSet results = SqlQuery.SQL_selectProperties(DatabaseMetadata.Tables.Customers, props);
 
@@ -33,14 +39,7 @@ public class CustomerRepository {
 
 	public static Customer getCustomerbyID(int id) throws SQLException {
 
-		List<String> props = new LinkedList<String>();
-		props.add("ID");
-		props.add("firstName");
-		props.add("lastName");
-		props.add("houseNumber");
-		props.add("zipCode");
-		props.add("street");
-		props.add("phoneNumber");
+
 
 		Customer dt = null;
 
