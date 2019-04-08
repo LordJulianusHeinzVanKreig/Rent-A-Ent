@@ -4,7 +4,14 @@ public class Location extends DatabaseEntity {
 	private String Street;
 	private int ZipCode;
 	private String HouseNumber;
+	private Worker Leader;
 	
+	public Worker getLeader() {
+		return Leader;
+	}
+	public void setLeader(Worker leader) {
+		Leader = leader;
+	}
 	public String getStreet() {
 		return Street;
 	}
@@ -24,10 +31,11 @@ public class Location extends DatabaseEntity {
 		HouseNumber = houseNumber;
 	}
 	
-	public Location(int id, String street, int zipCode, String houseNumber) {
+	public Location(int id, String street, int zipCode, String houseNumber, Worker leader) {
 		super(id);
 		Street = street;
 		ZipCode = zipCode;
 		HouseNumber = houseNumber;
+		Leader = leader;
 	}
 }

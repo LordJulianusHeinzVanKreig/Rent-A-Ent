@@ -15,7 +15,12 @@ public class DatabaseMetadata {
 	
 	public class Tables {
 		public static final String DuckTypes = "ducktype";
+
+		public static final String Customers = "customer";
+
 		public static final String Locations = "location";
 		public static final String Ducks = "ducks";
+		public static final String Workers = "worker";
+		
 	}
 }
