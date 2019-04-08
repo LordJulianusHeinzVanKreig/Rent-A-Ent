@@ -14,13 +14,13 @@ import application.database.entities.Worker;
 public class WorkerRepository {
 	private static LinkedList<String> props = new LinkedList<String>() {
 		{
-			props.add("ID");
-			props.add("firstName");
-			props.add("lastName");
-			props.add("houseNumber");
-			props.add("zipCode");
-			props.add("street");
-			props.add("phoneNumber");
+			add("ID");
+			add("firstName");
+			add("lastName");
+			add("houseNumber");
+			add("zipCode");
+			add("street");
+			add("phoneNumber");
 		}
 	};
 
@@ -32,7 +32,7 @@ public class WorkerRepository {
 		while (results.next())
 			;
 		dts.add(new Worker(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
-				results.getInt(5), results.getString(6), results.getString(7), results.getInt(8), results.getInt(9)));
+				results.getInt(5), results.getString(6), results.getString(7), 0, 0));
 
 		return dts;
 	}
@@ -45,8 +45,7 @@ public class WorkerRepository {
 
 		if (results.next()) {
 			dt = new Worker(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
-					results.getInt(5), results.getString(6), results.getString(7), results.getInt(8),
-					results.getInt(9));
+					results.getInt(5), results.getString(6), results.getString(7), 0, 0);
 		}
 		return dt;
 
@@ -61,8 +60,7 @@ public class WorkerRepository {
 		{
 		
 			dts.add(new Worker(results.getInt(1), results.getString(2), results.getString(3), results.getString(4),
-					results.getInt(5), results.getString(6), results.getString(7), results.getInt(8),
-					results.getInt(9)));
+					results.getInt(5), results.getString(6), results.getString(7), 0,0 ));
 		}
 		
 		
