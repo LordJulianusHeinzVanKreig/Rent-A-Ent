@@ -1,5 +1,6 @@
 package application.View;
 	
+import application.database.api.SqlConnector;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +18,7 @@ public class Main extends Application {
 			primaryStage.setTitle("RENT-A-ENT");
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			SqlConnector.connect("localhost", "3306", "rentaent", "admin", "heinzketchup");
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
