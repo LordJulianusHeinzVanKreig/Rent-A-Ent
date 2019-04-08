@@ -21,7 +21,7 @@ public class SqlQuery {
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;
@@ -39,7 +39,7 @@ public class SqlQuery {
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;		
@@ -49,18 +49,15 @@ public class SqlQuery {
 		ResultSet rs = null;
 		
 		try 
-		{
-			String props = "";
-			for (int i = 0; i < properties.size() - 1; i++) {
-				props += properties.get(i) + ", ";
-			}			
-			String abfrage = "SELECT " + props + " FROM " + SqlConnector.Database + "." + tabelle + " where ID = " + id + ";";
+		{		
+			
+			String abfrage = "SELECT " + buildPropertiesString(properties) + " FROM " + SqlConnector.Database + "." + tabelle + " where ID = " + id + ";";
 			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
 			
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;		
@@ -72,19 +69,44 @@ public class SqlQuery {
 		
 		try 
 		{
-			String props = "";
-			for (int i = 0; i < properties.size() - 1; i++) {
-				props += properties.get(i) + ", ";
-			}
-			String abfrage = "SELECT " + props + " FROM " + SqlConnector.Database + "." + tabelle + ";";
+			
+			String abfrage = "SELECT " + buildPropertiesString(properties) + " FROM " + SqlConnector.Database + "." + tabelle + ";";
 			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
 			
 		}
 		catch (SQLException ex) 
 		{
-			Logger.getLogger(SqlQuery.class.getName()).log(Level.SEVERE, null, ex);
+			ex.printStackTrace();
 		}
 		
 		return rs;
+	}
+	
+	public static ResultSet SQL_selectPropertiesWhere(String tabelle, List<String> properties, String whereCondition)
+	{
+		ResultSet rs = null;
+		
+		try 
+		{
+			
+			String abfrage = "SELECT " + buildPropertiesString(properties) + " FROM " + SqlConnector.Database + "." + tabelle + " where " + whereCondition + ";";
+			rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
+			
+		}
+		catch (SQLException ex) 
+		{
+			ex.printStackTrace();
+		}
+		
+		return rs;
+	}
+	
+	private static String buildPropertiesString(List<String> properties) {
+		String props = "";
+		for (int i = 0; i < properties.size() - 1; i++) {
+			props += properties.get(i) + ", ";
+		}
+		props += properties.get(properties.size()-1);
+		return props;
 	}
 }
