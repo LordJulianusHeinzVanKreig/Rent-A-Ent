@@ -20,6 +20,7 @@ public class DatabaseMetadata {
 
 		public static final String Locations = "location";
 		public static final String Ducks = "ducks";
-
+		public static final String Workers = "worker";
+		
 	}
 }
