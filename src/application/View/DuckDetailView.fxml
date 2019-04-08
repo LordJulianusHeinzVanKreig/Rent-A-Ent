@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -14,7 +13,7 @@
                <children>
                   <AnchorPane prefHeight="28.0" prefWidth="300.0">
                      <children>
-                        <Text fx:id="DuckDetailLabel" layoutX="91.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten-Details">
+                        <Text layoutX="91.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten-Details">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -88,7 +87,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextArea fx:id="DuckDetailType" layoutX="154.0" layoutY="6.0" prefHeight="50.0" prefWidth="150.0" />
+                                    <Text fx:id="DuckDetailType" layoutX="175.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -98,7 +97,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextArea fx:id="DuckDetailDescription" layoutX="154.0" layoutY="6.0" prefHeight="50.0" prefWidth="150.0" />
+                                    <Text fx:id="DuckDetailDescription" layoutX="175.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
