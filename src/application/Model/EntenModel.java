@@ -8,6 +8,7 @@ import application.Model.cellFactories.LocationViewCell;
 import application.Model.cellFactories.WorkerViewCell;
 import application.database.api.DuckRepository;
 import application.database.api.LocationRepository;
+import application.database.api.WorkerRepository;
 import application.database.entities.Duck;
 import application.database.entities.DuckType;
 import application.database.entities.Location;
@@ -35,22 +36,32 @@ public class EntenModel  {
 	public void handleOnClickListLocations(MouseEvent event) {
 		Location location = listLocations.getSelectionModel().getSelectedItem();
 		try {
-			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
+			List<Worker>workers = WorkerRepository.getWorkersfromLocation(location);
 			listDucks.getItems().clear();
-			for (Duck duck : ducks) {
-				listDucks.getItems().add(duck);
+			for (Worker worker : workers) {
+				listWorkers.getItems().add(worker);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		listDucks.getItems().add(new Duck(1, 2, "kevin", "nachui", 500, true, new DuckType(1, null, "Unterhinterkirchen", Integer.MAX_VALUE)));
+		
 		listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
 			@Override
 			public ListCell<Duck> call(ListView<Duck> listDucks){
 				return new DuckViewCell();
 			}
 		});
-		listWorkers.getItems().add(new Worker(2, "Gustav", "Gans", "35", 91717, "Dönerstraße", "010101", 35, 17));
+		
+		try {
+			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
+			listDucks.getItems().clear();
+			for (Duck duck : ducks) {
+				listDucks.getItems().add(duck);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
 			@Override
 			public ListCell<Worker> call(ListView<Worker> listWorkers){
@@ -86,21 +97,20 @@ public class EntenModel  {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/WorkerDetailView.fxml"));
 			Scene DuckDetailScene = new Scene(loader.load());
-			DuckDetailModel model = loader.<DuckDetailModel>getController();
+			WorkerDetailModel model = loader.<WorkerDetailModel>getController();
 //			DuckDetailScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			DuckDetailStage.setScene(DuckDetailScene);
 			DuckDetailStage.setTitle("Mitarbeiter-Details");
 			DuckDetailStage.show();
-			Duck selectedDuck =	listDucks.getSelectionModel().getSelectedItem();
-			model.startDuckDetailStage(selectedDuck);
+			Worker selectedWorker =	listWorkers.getSelectionModel().getSelectedItem();
+			model.startWorkerDetailStage(selectedWorker);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
-	@FXML
-	public void handleButton(ActionEvent event) {
+	
+	public void init() {
 		
 		try {
 			List<Location>locations = LocationRepository.getAllLocations();

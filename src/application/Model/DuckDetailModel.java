@@ -28,9 +28,9 @@ public class DuckDetailModel {
 			if(duck.isGender()) DuckDetailGender.setText("Männlich");
 			else DuckDetailGender.setText("Weiblich");
 			DuckDetailTemperament.setText(Integer.toString(duck.getTemperament()));
-			DuckDetailType.setText("Region:" + duck.getType().getRegion() + "\n" + 
-					"Brutzeit:" + duck.getType().getBreedTime() + "\n" + 
-					"Max. Alter:" + duck.getType().getMaxAge() + "\n");
+			DuckDetailType.setText("Region: " + duck.getType().getRegion() + "\n" + 
+					"Brutzeit: " + duck.getType().getBreedTime() + "\n" + 
+					"Max. Alter: " + duck.getType().getMaxAge() + "\n");
 			DuckDetailDescription.setText(duck.getDescription());
 				
 	}
