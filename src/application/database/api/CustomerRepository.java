@@ -51,7 +51,7 @@ public class CustomerRepository {
 		return dt;
 	}
 
-	public static void addCustomer(Customer customer) throws SQLException {
+	public static void addCustomer(Customer customer) {
 		LinkedList<String> data = new LinkedList<String>();
 		data.add("NULL");
 		data.add("'" + customer.getFirstName() + "'");

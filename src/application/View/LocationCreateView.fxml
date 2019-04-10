@@ -11,7 +11,7 @@
       <AnchorPane prefHeight="179.0" prefWidth="200.0">
          <children>
             <Button layoutX="74.0" layoutY="174.0" mnemonicParsing="false" onAction="#onOkButtonPressed" text="Ok" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="74.0" />
-            <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer Standort" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="36.6728515625" AnchorPane.topAnchor="14.259765625">
+            <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neuer Standort" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="36.0" AnchorPane.topAnchor="14.0">
                <font>
                   <Font size="22.0" />
                </font>

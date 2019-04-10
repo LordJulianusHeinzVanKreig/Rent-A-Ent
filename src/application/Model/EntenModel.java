@@ -227,10 +227,7 @@ public class EntenModel  {
 		}
 	}
 	
-	public void init() {
-		
-		this.reloadLocations();
-		
+	private void reloadCustomers() {
 		try {
 			List<Customer>customers = CustomerRepository.getAllCustomer();
 			listCustomers.getItems().clear();
@@ -240,7 +237,13 @@ public class EntenModel  {
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
+	}
+	
+	public void init() {
 		
+		this.reloadLocations();
+		
+		this.reloadCustomers();
 		
 		listLocations.setCellFactory(new Callback<ListView<Location>,ListCell<Location>>(){
 			@Override
@@ -284,7 +287,17 @@ public class EntenModel  {
 	
 	@FXML
 	public void onClickCustomerCreate() {
-		
+		try {
+			Stage CustomerCreateStage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/CustomerCreateView.fxml"));
+			Scene CustomerCreateScene = new Scene(loader.load());
+			CustomerCreateStage.setScene(CustomerCreateScene);
+			CustomerCreateStage.setTitle("Kunde erstellen");
+			CustomerCreateStage.show();
+			CustomerCreateStage.setOnCloseRequest(event -> this.reloadCustomers());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
 	}
 	
 	@FXML
