@@ -9,7 +9,7 @@ public class CustomerViewCell extends ListCell<Customer>{
 	public void updateItem(Customer customer, boolean empty) {
 		super.updateItem(customer, empty);
 		if(!empty) {
-			setText(customer.getLastName());
+			setText(customer.getFirstName() + " " + customer.getLastName());
 		}
 	}
 }
