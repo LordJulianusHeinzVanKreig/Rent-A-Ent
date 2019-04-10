@@ -2,8 +2,11 @@ package application.database.api;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import application.database.entities.DuckType;
 
@@ -41,5 +44,15 @@ public class DuckTypeRepository {
 		}
 		
 		return dt;
+	}
+	
+	public static void addDuckType(DuckType duckType) {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("NULL");
+		data.add("'" + new SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(duckType.getBreedTime()) + "'");
+		data.add("'" + duckType.getRegion() + "'");
+		data.add("'" + duckType.getMaxAge() + "'");
+		
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.DuckTypes, props, data);
 	}
 }

@@ -109,6 +109,7 @@ public class SqlQuery {
 		{
 			String abfrage = "INSERT INTO " + SqlConnector.Database + "." + tabelle + 
 					" (" + buildPropertiesString(properties) + ") VALUES (" + buildDataString(data) + ");";
+			System.out.println(abfrage);
 			SqlConnector.Connection.createStatement().execute(abfrage);
 			//rs = SqlConnector.Connection.createStatement().executeQuery(abfrage);
 		}
@@ -130,11 +131,11 @@ public class SqlQuery {
 	}
 	
 	private static String buildDataString(List<String> data) {
-		String dataString = "'";
+		String dataString = "";
 		for (int i = 0; i < data.size() - 1; i++) {
-			dataString += data.get(i) + "', '";
+			dataString += data.get(i) + ", ";
 		}
-		dataString += data.get(data.size()-1) + "'";
+		dataString += data.get(data.size() - 1);
 		return dataString;		
 	}
 }

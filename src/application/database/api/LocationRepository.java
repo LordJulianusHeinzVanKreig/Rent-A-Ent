@@ -2,6 +2,7 @@ package application.database.api;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,5 +46,16 @@ public class LocationRepository {
 		}
 
 		return dt;
+	}
+	
+	public static void addLocation(Location location) {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("NULL");
+		data.add("'" + location.getStreet() + "'");
+		data.add("'" + location.getZipCode() + "'");
+		data.add("'" + location.getHouseNumber() + "'");
+		data.add("NULL");
+		
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Locations, props, data);
 	}
 }

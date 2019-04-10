@@ -21,6 +21,7 @@ public class WorkerRepository {
 			add("zipCode");
 			add("street");
 			add("phoneNumber");
+			add("locationID");
 		}
 	};
 
@@ -51,7 +52,7 @@ public class WorkerRepository {
 
 	}
 
-	public static  List<Worker> getWorkersfromLocation(Location location) throws SQLException {
+	public static List<Worker> getWorkersfromLocation(Location location) throws SQLException {
 		
 		List<Worker> dts = new LinkedList<Worker>();
 		ResultSet results = SqlQuery.SQL_selectPropertiesWhere(DatabaseMetadata.Tables.Workers, props, "locationID = " + location.getId());
@@ -66,6 +67,20 @@ public class WorkerRepository {
 		
 		return dts;
 
+	}
+	
+	public static void addWorker(Worker worker, Location location) {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("NULL");
+		data.add("'" + worker.getFirstName() + "'");
+		data.add("'" + worker.getLastName() + "'");
+		data.add("'" + worker.getHouseNumber() + "'");
+		data.add("'" + worker.getZipCode() + "'");
+		data.add("'" + worker.getStreet() + "'");
+		data.add("'" + worker.getPhoneNumber() + "'");
+		data.add("'" + location.getId() + "'");
+		
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Workers, props, data);
 	}
 
 }

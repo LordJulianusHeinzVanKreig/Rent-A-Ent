@@ -55,13 +55,14 @@ public class CustomerRepository {
 	
 	public static void addCustomer(Customer customer) throws SQLException {
 		LinkedList<String> data = new LinkedList<String>();
-		data.add(customer.getFirstName());
-		data.add(customer.getLastName());
-		data.add(customer.getHouseNumber());
-		data.add(Integer.toString(customer.getZipCode()));
-		data.add(customer.getStreet());
-		data.add(customer.getPhoneNumber());
+		data.add("NULL");
+		data.add("'" + customer.getFirstName() + "'");
+		data.add("'" + customer.getLastName() + "'");
+		data.add("'" + customer.getHouseNumber() + "'");
+		data.add("'" + Integer.toString(customer.getZipCode()) + "'");
+		data.add("'" + customer.getStreet() + "'");
+		data.add("'" + customer.getPhoneNumber() + "'");
 		
-		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Customers, props.subList(1, props.size()), data);
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Customers, props, data);
 	}
 }
