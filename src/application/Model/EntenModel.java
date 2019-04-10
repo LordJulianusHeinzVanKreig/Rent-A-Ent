@@ -236,6 +236,7 @@ public class EntenModel  {
 			e.getStackTrace();
 		}
 		
+		
 		listLocations.setCellFactory(new Callback<ListView<Location>,ListCell<Location>>(){
 			@Override
 			public ListCell<Location> call(ListView<Location> listLocations){
