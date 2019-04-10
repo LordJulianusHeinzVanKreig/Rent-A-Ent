@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import application.Model.cellFactories.CustomerViewCell;
-import application.Model.cellFactories.DuckViewCell;
+import application.Model.cellFactories.DucksOfCustomerViewCell;
 import application.Model.cellFactories.LocationViewCell;
 import application.Model.cellFactories.WorkerViewCell;
 import application.database.api.CustomerRepository;
@@ -53,10 +53,19 @@ public class EntenModel  {
 	Text CustomerDetailPhoneNumber;
 	@FXML
 	Text CustomerDetailRating;
+	@FXML
+	Text LocationDetailStreet;
+	@FXML
+	Text LocationDetailHouseNumber;
+	@FXML
+	Text LocationDetailZipCode;
+	@FXML
+	Text LocationDetailLeader;
 	
 	@FXML
 	public void handleOnClickListLocations(MouseEvent event) {
 		Location location = listLocations.getSelectionModel().getSelectedItem();
+		listLocations.getSelectionModel().clearSelection();
 		try {
 			List<Worker>workers = WorkerRepository.getWorkersfromLocation(location);
 			listWorkers.getItems().clear();
@@ -67,13 +76,13 @@ public class EntenModel  {
 			e.printStackTrace();
 		}
 		
-		listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
+		listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
 			@Override
-			public ListCell<Duck> call(ListView<Duck> listDucks){
-				return new DuckViewCell();
+			public ListCell<Worker> call(ListView<Worker> listWorkers){
+				return new WorkerViewCell();
 			}
 		});
-		
+	
 		try {
 			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
 			listDucks.getItems().clear();
@@ -81,18 +90,29 @@ public class EntenModel  {
 				listDucks.getItems().add(duck);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
-		listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
+		listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
 			@Override
-			public ListCell<Worker> call(ListView<Worker> listWorkers){
-				return new WorkerViewCell();
+			public ListCell<Duck> call(ListView<Duck> listDucks){
+				return new DucksOfCustomerViewCell();
 			}
 		});
+		fillLocationInformation(location);
 	}
 	
-	private void fillCustomerInformationList(Customer customer) {
+	private void fillLocationInformation(Location location) {
+		
+		if(location.getHouseNumber() != null) LocationDetailHouseNumber.setText(location.getHouseNumber());
+		if(location.getStreet() != null) LocationDetailStreet.setText(location.getStreet());
+		LocationDetailZipCode.setText(Integer.toString(location.getZipCode()));
+		if(location.getLeader() != null)LocationDetailLeader.setText(location.getLeader().getFirstName() + " " + location.getLeader().getLastName());
+			
+		
+	}
+	
+	private void fillCustomerInformation(Customer customer) {
 		CustomerDetailID.setText(Integer.toString(customer.getId()));
 		CustomerDetailFirstName.setText(customer.getFirstName());
 		CustomerDetailLastName.setText(customer.getLastName());
@@ -107,7 +127,7 @@ public class EntenModel  {
 	@FXML 
 	public void handleOnClickListCustomers(MouseEvent event) {
 		Customer customer = listCustomers.getSelectionModel().getSelectedItem();
-		fillCustomerInformationList(customer);
+		fillCustomerInformation(customer);
 		try {  // done
 			List<Duck>ducks = DuckRepository.getAllDucksFromCustomer(customer);
 			listDucksOfCustomer.getItems().clear();
@@ -118,51 +138,78 @@ public class EntenModel  {
 			e.printStackTrace();
 		}
 		
-		listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
+		listDucksOfCustomer.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
 			@Override
-			public ListCell<Worker> call(ListView<Worker> listWorkers){
-				return new WorkerViewCell();
+			public ListCell<Duck> call(ListView<Duck> listDucksOfCustomer){
+				return new DucksOfCustomerViewCell();
 			}
 		});
 		
 	}
 	
+	@FXML 
+	public void handleOnClickListDucksOfCustomer() {
+		
+		Duck selectedDuck =	listDucksOfCustomer.getSelectionModel().getSelectedItem();
+		listDucksOfCustomer.getSelectionModel().clearSelection();
+		if(selectedDuck != null) {
+			try {
+				Stage DuckDetailStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/DuckDetailView.fxml"));
+				Scene DuckDetailScene = new Scene(loader.load());
+				DuckDetailModel model = loader.<DuckDetailModel>getController();
+	//			DuckDetailScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				DuckDetailStage.setScene(DuckDetailScene);
+				DuckDetailStage.setTitle("Enten-Details");
+				DuckDetailStage.show();
+				model.startDuckDetailStage(selectedDuck);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	@FXML
 	public void handleOnClickListDucks() {
-		
-		Stage DuckDetailStage = new Stage();
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/DuckDetailView.fxml"));
-			Scene DuckDetailScene = new Scene(loader.load());
-			DuckDetailModel model = loader.<DuckDetailModel>getController();
+
+		Duck selectedDuck =	listDucks.getSelectionModel().getSelectedItem();
+		listDucksOfCustomer.getSelectionModel().clearSelection();
+		if(selectedDuck != null) {
+			try {
+				Stage DuckDetailStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/DuckDetailView.fxml"));
+				Scene DuckDetailScene = new Scene(loader.load());
+				DuckDetailModel model = loader.<DuckDetailModel>getController();
 //			DuckDetailScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			DuckDetailStage.setScene(DuckDetailScene);
-			DuckDetailStage.setTitle("Enten-Details");
-			DuckDetailStage.show();
-			Duck selectedDuck =	listDucks.getSelectionModel().getSelectedItem();
-			model.startDuckDetailStage(selectedDuck);
-		} catch (Exception e) {
-			e.printStackTrace();
+				DuckDetailStage.setScene(DuckDetailScene);
+				DuckDetailStage.setTitle("Enten-Details");
+				DuckDetailStage.show();
+				model.startDuckDetailStage(selectedDuck);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-				
 	}
 	
 	@FXML 
 	public void handleOnClickListWorkers() {
-		
-		Stage DuckDetailStage = new Stage();
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/WorkerDetailView.fxml"));
-			Scene DuckDetailScene = new Scene(loader.load());
-			WorkerDetailModel model = loader.<WorkerDetailModel>getController();
+
+		Worker selectedWorker =	listWorkers.getSelectionModel().getSelectedItem();
+		listDucksOfCustomer.getSelectionModel().clearSelection();
+		if(selectedWorker != null) {
+			try {
+				Stage DuckDetailStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/WorkerDetailView.fxml"));
+				Scene DuckDetailScene = new Scene(loader.load());
+				WorkerDetailModel model = loader.<WorkerDetailModel>getController();
 //			DuckDetailScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			DuckDetailStage.setScene(DuckDetailScene);
-			DuckDetailStage.setTitle("Mitarbeiter-Details");
-			DuckDetailStage.show();
-			Worker selectedWorker =	listWorkers.getSelectionModel().getSelectedItem();
-			model.startWorkerDetailStage(selectedWorker);
-		} catch (Exception e) {
-			e.printStackTrace();
+				DuckDetailStage.setScene(DuckDetailScene);
+				DuckDetailStage.setTitle("Mitarbeiter-Details");
+				DuckDetailStage.show();
+				model.startWorkerDetailStage(selectedWorker);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
 		}
 	}
 	
@@ -203,4 +250,30 @@ public class EntenModel  {
 			}
 		});
 	}
+	
+	@FXML
+	public void onClickLocationCreate() {
+		
+	}
+	
+	@FXML
+	public void onClickDuckForLocationCreate() {
+		
+	}
+	
+	@FXML
+	public void onClickWorkerForLocationCreate() {
+		
+	}
+	
+	@FXML
+	public void onClickCustomerCreate() {
+		
+	}
+	
+	@FXML
+	public void onClickRentAEntByCustomer() {
+		
+	}
+	
 }

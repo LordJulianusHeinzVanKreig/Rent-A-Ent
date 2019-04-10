@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -17,7 +18,7 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rent-A-Ent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Text layoutX="466.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent-A-Ent" AnchorPane.bottomAnchor="0.474609375" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="7.0849609375" AnchorPane.topAnchor="-0.056640625">
                            <font>
                               <Font size="26.0" />
                            </font>
@@ -40,13 +41,14 @@
                                                          <children>
                                                             <VBox prefHeight="331.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                <children>
-                                                                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                                                  <AnchorPane prefHeight="200.0" prefWidth="199.0">
                                                                      <children>
-                                                                        <Text layoutX="67.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Standorte" AnchorPane.bottomAnchor="15.2353515625" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0634765625" AnchorPane.topAnchor="14.8134765625">
+                                                                        <Text layoutX="42.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Standorte" AnchorPane.bottomAnchor="81.2353515625" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="92.0634765625" AnchorPane.topAnchor="13.8134765625">
                                                                            <font>
                                                                               <Font size="15.0" />
                                                                            </font>
                                                                         </Text>
+                                                                        <Button layoutX="134.0" layoutY="13.0" mnemonicParsing="false" onAction="#onClickLocationCreate" prefHeight="25.0" prefWidth="44.0" text="Neu" />
                                                                      </children>
                                                                   </AnchorPane>
                                                                   <AnchorPane prefHeight="432.0" prefWidth="199.0">
@@ -62,7 +64,17 @@
                                                          <children>
                                                             <VBox prefHeight="331.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                <children>
-                                                                  <AnchorPane prefHeight="57.0" prefWidth="401.0" />
+                                                                  <AnchorPane prefHeight="57.0" prefWidth="401.0">
+                                                                     <children>
+                                                                        <Text layoutX="8.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Straße:" />
+                                                                        <Text layoutX="266.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postleitzahl:" />
+                                                                        <Text layoutX="190.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HN:" />
+                                                                        <Text layoutX="8.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Standortleiter:" />
+                                                                        <Text fx:id="LocationDetailLeader" layoutX="90.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                                        <Text fx:id="LocationDetailStreet" layoutX="53.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                                        <Text fx:id="LocationDetailHouseNumber" layoutX="213.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                                        <Text fx:id="LocationDetailZipCode" layoutX="334.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                                                     </children></AnchorPane>
                                                                   <AnchorPane prefHeight="275.0" prefWidth="401.0">
                                                                      <children>
                                                                         <HBox prefHeight="275.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -74,6 +86,7 @@
                                                                                           <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                                                              <children>
                                                                                                 <Text layoutX="89.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" />
+                                                                                                <Button layoutX="154.0" mnemonicParsing="false" onAction="#onClickDuckForLocationCreate" prefHeight="25.0" prefWidth="39.0" text="Neu" />
                                                                                              </children>
                                                                                           </AnchorPane>
                                                                                           <AnchorPane prefHeight="425.0" prefWidth="200.0">
@@ -92,6 +105,7 @@
                                                                                           <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                                                              <children>
                                                                                                 <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mitarbeiter" />
+                                                                                                <Button layoutX="153.0" mnemonicParsing="false" onAction="#onClickWorkerForLocationCreate" text="Neu" />
                                                                                              </children>
                                                                                           </AnchorPane>
                                                                                           <AnchorPane prefHeight="428.0" prefWidth="200.0">
@@ -138,6 +152,7 @@
                                                                               <Font size="15.0" />
                                                                            </font>
                                                                         </Text>
+                                                                        <Button layoutX="133.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickCustomerCreate" text="Neu" />
                                                                      </children>
                                                                   </AnchorPane>
                                                                   <AnchorPane prefHeight="432.0" prefWidth="199.0">
@@ -215,7 +230,7 @@
                                                                                                       </AnchorPane>
                                                                                                       <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                                                                          <children>
-                                                                                                            <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating&lt;?&gt;:" />
+                                                                                                            <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" />
                                                                                                             <Text fx:id="CustomerDetailRating" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                                                                                                          </children>
                                                                                                       </AnchorPane>
@@ -234,11 +249,12 @@
                                                                                           <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                                                                              <children>
                                                                                                 <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" />
+                                                                                                <Button layoutX="125.0" mnemonicParsing="false" onAction="#onClickRentAEntByCustomer" text="Ausleihen" />
                                                                                              </children>
                                                                                           </AnchorPane>
                                                                                           <AnchorPane prefHeight="428.0" prefWidth="200.0">
                                                                                              <children>
-                                                                                                <ListView fx:id="listDucksOfCustomer" onMouseClicked="#handleOnClickListWorkers" prefHeight="252.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                                                <ListView fx:id="listDucksOfCustomer" onMouseClicked="#handleOnClickListDucksOfCustomer" prefHeight="252.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                                                                              </children>
                                                                                           </AnchorPane>
                                                                                        </children>
