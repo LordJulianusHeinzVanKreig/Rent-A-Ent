@@ -1,3 +1,4 @@
+
 package application.database.api;
 
 import java.sql.ResultSet;
@@ -38,9 +39,6 @@ public class CustomerRepository {
 	}
 
 	public static Customer getCustomerbyID(int id) throws SQLException {
-
-
-
 		Customer dt = null;
 
 		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.Customers, id, props);
@@ -52,7 +50,7 @@ public class CustomerRepository {
 
 		return dt;
 	}
-	
+
 	public static void addCustomer(Customer customer) throws SQLException {
 		LinkedList<String> data = new LinkedList<String>();
 		data.add("NULL");
@@ -64,5 +62,9 @@ public class CustomerRepository {
 		data.add("'" + customer.getPhoneNumber() + "'");
 		
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Customers, props, data);
+	}
+	
+	public static void deleteCustomer(Customer customer) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Customers, customer.getId());
 	}
 }

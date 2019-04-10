@@ -93,4 +93,8 @@ public class DuckRepository {
 		
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Ducks, props, data);
 	}
+	
+	public static void deleteDuckbyId(Duck duck) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Ducks, duck.getId());
+	}
 }

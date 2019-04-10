@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+import application.database.entities.Duck;
 import application.database.entities.DuckType;
 
 public class DuckTypeRepository {
@@ -54,5 +55,9 @@ public class DuckTypeRepository {
 		data.add("'" + duckType.getMaxAge() + "'");
 		
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.DuckTypes, props, data);
+	}
+	
+	public static void deleteDuckTypebyId(DuckType ducktype) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.DuckTypes, ducktype.getId());
 	}
 }

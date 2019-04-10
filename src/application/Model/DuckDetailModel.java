@@ -3,7 +3,6 @@ package application.Model;
 import application.database.entities.Duck;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
 public class DuckDetailModel {
 	

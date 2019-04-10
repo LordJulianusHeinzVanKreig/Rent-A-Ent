@@ -82,5 +82,9 @@ public class WorkerRepository {
 		
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Workers, props, data);
 	}
+	
+	public static void deleteWorker(Worker worker) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Workers, worker.getId());
+	}
 
 }

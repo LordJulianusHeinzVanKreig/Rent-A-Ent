@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
+import application.database.entities.Duck;
 import application.database.entities.Location;
 import application.database.entities.Worker;
 
@@ -57,5 +58,9 @@ public class LocationRepository {
 		data.add("NULL");
 		
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Locations, props, data);
+	}
+	
+	public static void deleteLocation(Location location) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Locations, location.getId());
 	}
 }
