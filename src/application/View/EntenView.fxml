@@ -114,144 +114,120 @@
           </Tab>
           <Tab text="Kunden">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane>
                      <children>
-                        <AnchorPane prefHeight="333.0" prefWidth="600.0">
+                        <HBox prefHeight="331.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <HBox prefHeight="331.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <VBox>
                                  <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                    <AnchorPane VBox.vgrow="NEVER">
                                        <children>
-                                          <VBox prefHeight="331.0" prefWidth="199.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <Text layoutX="67.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kunden" AnchorPane.bottomAnchor="15.2353515625" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="67.0634765625" AnchorPane.topAnchor="14.8134765625">
-                                                         <font>
-                                                            <Font size="15.0" />
-                                                         </font>
-                                                      </Text>
-                                                      <Button layoutX="133.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickCustomerCreate" text="Neu" />
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane prefHeight="432.0" prefWidth="199.0">
-                                                   <children>
-                                                      <ListView fx:id="listCustomers" onMouseClicked="#handleOnClickListCustomers" prefHeight="282.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </VBox>
+                                          <Text layoutX="67.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kunden" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Text>
+                                          <Button layoutX="133.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickCustomerCreate" text="Neu" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefHeight="331.0" prefWidth="402.0">
-                                       <children>
-                                          <VBox prefHeight="331.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <AnchorPane prefHeight="57.0" prefWidth="401.0" />
-                                                <AnchorPane prefHeight="275.0" prefWidth="401.0">
-                                                   <children>
-                                                      <HBox prefHeight="275.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                         <children>
-                                                            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                               <children>
-                                                                  <VBox prefHeight="275.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                     <children>
-                                                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                           <children>
-                                                                              <Text layoutX="45.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kunden-Informationen" />
-                                                                           </children>
-                                                                        </AnchorPane>
-                                                                        <AnchorPane prefHeight="425.0" prefWidth="200.0">
-                                                                           <children>
-                                                                              <VBox prefHeight="250.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                                 <children>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" />
-                                                                                          <Text fx:id="CustomerDetailID" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:" />
-                                                                                          <Text fx:id="CustomerDetailFirstName" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:" />
-                                                                                          <Text fx:id="CustomerDetailLastName" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hausnummer:" />
-                                                                                          <Text fx:id="CustomerDetailHouseNumber" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postleitzahl:" />
-                                                                                          <Text fx:id="CustomerDetailZipCode" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Straße:" />
-                                                                                          <Text fx:id="CustomerDetailStreet" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonnummer:" />
-                                                                                          <Text fx:id="CustomerDetailPhoneNumber" layoutX="108.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                                       <children>
-                                                                                          <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" />
-                                                                                          <Text fx:id="CustomerDetailRating" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </VBox>
-                                                                           </children>
-                                                                        </AnchorPane>
-                                                                     </children>
-                                                                  </VBox>
-                                                               </children>
-                                                            </AnchorPane>
-                                                            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                               <children>
-                                                                  <VBox prefHeight="275.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                                                     <children>
-                                                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                                                           <children>
-                                                                              <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" />
-                                                                              <Button layoutX="125.0" mnemonicParsing="false" onAction="#onClickRentAEntByCustomer" text="Ausleihen" />
-                                                                           </children>
-                                                                        </AnchorPane>
-                                                                        <AnchorPane prefHeight="428.0" prefWidth="200.0">
-                                                                           <children>
-                                                                              <ListView fx:id="listDucksOfCustomer" onMouseClicked="#handleOnClickListDucksOfCustomer" prefHeight="252.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                                           </children>
-                                                                        </AnchorPane>
-                                                                     </children>
-                                                                  </VBox>
-                                                               </children>
-                                                            </AnchorPane>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
+                                    <ListView fx:id="listCustomers" onMouseClicked="#handleOnClickListCustomers" VBox.vgrow="ALWAYS" />
                                  </children>
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <HBox HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <VBox HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kunden-Informationen" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailID" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailFirstName" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailLastName" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hausnummer:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailHouseNumber" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postleitzahl:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailZipCode" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Straße:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailStreet" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefonnummer:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailPhoneNumber" layoutX="108.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                                <Text fx:id="CustomerDetailRating" layoutX="100.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="2.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <VBox HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <AnchorPane>
+                                             <children>
+                                                <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+                                                <Button layoutX="125.0" mnemonicParsing="false" onAction="#onClickRentAEntByCustomer" text="Ausleihen" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <ListView fx:id="listDucksOfCustomer" onMouseClicked="#handleOnClickListDucksOfCustomer" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="2.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
                               </HBox>
                            </children>
-                        </AnchorPane>
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" />
+                           </padding>
+                        </HBox>
                      </children>
                   </AnchorPane>
                </content>
