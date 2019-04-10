@@ -16,6 +16,7 @@ public class DuckTypeRepository {
 	private static LinkedList<String> props = new LinkedList<String>() {
 		{			
 			add("ID");
+			add("Name");
 			add("breedTime");
 			add("region");
 			add("maxAge");
@@ -29,7 +30,7 @@ public class DuckTypeRepository {
 		
 		while(results.next())
 		{
-			dts.add(new DuckType(results.getInt(1), results.getDate(2), results.getString(3), results.getInt(4)));
+			dts.add(new DuckType(results.getInt(1), results.getString(2), results.getInt(3), results.getString(4), results.getInt(5)));
 		}
 		
 		return dts;
@@ -41,7 +42,7 @@ public class DuckTypeRepository {
 		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.DuckTypes, id, props);
 
 		if(results.next()) {
-			dt = new DuckType(results.getInt(1), results.getDate(2), results.getString(3), results.getInt(4));
+			dt = new DuckType(results.getInt(1), results.getString(2), results.getInt(3), results.getString(4), results.getInt(5));
 		}
 		
 		return dt;
@@ -50,7 +51,8 @@ public class DuckTypeRepository {
 	public static void addDuckType(DuckType duckType) {
 		LinkedList<String> data = new LinkedList<String>();
 		data.add("NULL");
-		data.add("'" + new SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(duckType.getBreedTime()) + "'");
+		data.add("'" + duckType.getName() + "'");
+		data.add("'" + duckType.getBreedTime() + "'");
 		data.add("'" + duckType.getRegion() + "'");
 		data.add("'" + duckType.getMaxAge() + "'");
 		

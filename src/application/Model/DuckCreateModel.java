@@ -60,7 +60,7 @@ public class DuckCreateModel {
 			
 			list = DuckTypeRepository.getAllDuckTypes();
 			for (DuckType duckType : list) {
-				TypeTextID.getItems().add(duckType.getRegion());
+				TypeTextID.getItems().add(duckType.getName());
 			}
 			GenderTextID.getItems().add("männlich");
 			GenderTextID.getItems().add("weiblich");

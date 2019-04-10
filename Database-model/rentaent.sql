@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 04. Apr 2019 um 15:17
--- Server-Version: 10.1.36-MariaDB
--- PHP-Version: 7.2.11
+-- Erstellungszeit: 10. Apr 2019 um 20:18
+-- Server-Version: 10.1.38-MariaDB
+-- PHP-Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -84,18 +84,20 @@ INSERT INTO `ducks` (`age`, `name`, `description`, `temperament`, `ID`, `gender`
 
 DROP TABLE IF EXISTS `ducktype`;
 CREATE TABLE `ducktype` (
-  `breedTime` date NOT NULL,
+  `breedTime` int(11) NOT NULL,
   `region` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `maxAge` int(11) NOT NULL,
-  `ID` int(11) NOT NULL
+  `ID` int(11) NOT NULL,
+  `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Daten für Tabelle `ducktype`
 --
 
-INSERT INTO `ducktype` (`breedTime`, `region`, `maxAge`, `ID`) VALUES
-('2019-04-04', 'Oberpfalz', 12, 1);
+INSERT INTO `ducktype` (`breedTime`, `region`, `maxAge`, `ID`, `Name`) VALUES
+(0, 'Oberpfalz', 12, 1, 'Sehr gemeine Hausente'),
+(1234, 'Erzgebirge Aue', 12345, 2, 'Heinz');
 
 -- --------------------------------------------------------
 
@@ -198,13 +200,13 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT für Tabelle `ducks`
 --
 ALTER TABLE `ducks`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT für Tabelle `ducktype`
 --
 ALTER TABLE `ducktype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`

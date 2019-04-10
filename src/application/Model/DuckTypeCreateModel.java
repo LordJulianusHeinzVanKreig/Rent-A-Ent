@@ -22,8 +22,8 @@ public class DuckTypeCreateModel {
 	
 	@FXML
 	public void onClickDuckTypeCreate() {
-		DuckType dt = new DuckType(0, new Date(), DuckTypeCreateRegion.getText(), Integer.parseInt(DuckTypeCreateMaxAge.getText()));
-//		DuckTypeRepository.addDuckType(dt);
+		DuckType dt = new DuckType(0, DuckTypeCreateName.getText(), Integer.parseInt(DuckTypeCreateBreedTime.getText()), DuckTypeCreateRegion.getText(), Integer.parseInt(DuckTypeCreateMaxAge.getText()));
+		DuckTypeRepository.addDuckType(dt);
 		Stage s = (Stage) this.DuckTypeCreateName.getScene().getWindow();
 		s.fireEvent(new WindowEvent(s, WindowEvent.WINDOW_CLOSE_REQUEST));
 	}

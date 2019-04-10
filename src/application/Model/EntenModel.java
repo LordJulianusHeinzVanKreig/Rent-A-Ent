@@ -3,8 +3,6 @@ package application.Model;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
-
 import application.Model.cellFactories.CustomerViewCell;
 import application.Model.cellFactories.DucksOfCustomerViewCell;
 import application.Model.cellFactories.LocationViewCell;

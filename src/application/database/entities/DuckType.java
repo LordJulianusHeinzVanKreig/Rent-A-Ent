@@ -1,24 +1,22 @@
 package application.database.entities;
 
-import java.util.Date;
-
 public class DuckType extends DatabaseEntity {
 	
-	private Date BreedTime;
+	private int BreedTime;
 	private String Region;
 	private int maxAge;
-//	private String Name;
-//	
-//	public String getName() {
-//		return Name;
-//	}
-//	public void setName(String name) {
-//		Name = name;
-//	}
-	public Date getBreedTime() {
+	private String Name;
+	
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public int getBreedTime() {
 		return BreedTime;
 	}
-	public void setBreedTime(Date breedTime) {
+	public void setBreedTime(int breedTime) {
 		BreedTime = breedTime;
 	}
 	public String getRegion() {
@@ -35,11 +33,11 @@ public class DuckType extends DatabaseEntity {
 	}
 	
 	
-	public DuckType(int id, Date breedTime, String region, int maxAge) {
+	public DuckType(int id, String name, int breedTime, String region, int maxAge) {
 		super(id);
 		BreedTime = breedTime;
 		Region = region;
 		this.maxAge = maxAge;
-//		Name = name;
+		Name = name;
 	}
 }
