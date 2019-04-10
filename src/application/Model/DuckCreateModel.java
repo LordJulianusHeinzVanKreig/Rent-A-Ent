@@ -4,6 +4,8 @@ package application.Model;
 import java.sql.SQLException;
 import java.util.List;
 
+import application.Model.cellFactories.DuckTypeViewCell;
+import application.Model.cellFactories.DucksOfCustomerViewCell;
 import application.database.api.DuckRepository;
 import application.database.api.DuckTypeRepository;
 import application.database.entities.Duck;
@@ -11,9 +13,13 @@ import application.database.entities.DuckType;
 import application.database.entities.Location;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Callback;
 
 public class DuckCreateModel {
 
@@ -26,7 +32,7 @@ public class DuckCreateModel {
 	@FXML
 	TextField TemperamentTextID;
 	@FXML
-	ChoiceBox TypeTextID;
+	ComboBox<DuckType> TypeTextID;
 	@FXML
 	TextField DescriptionTextID;
 	List<DuckType> list;
@@ -36,13 +42,8 @@ public class DuckCreateModel {
 	@FXML
 	public void onClickDuckCreate() {
 		
-		DuckType dt = null;
+		DuckType dt = TypeTextID.getValue();
 		boolean gender;
-		for (DuckType duckType : list) {
-			if(duckType.getRegion().equals(TypeTextID.getSelectionModel().getSelectedItem())) {
-				dt = duckType;
-			}
-		}
 
 		if(GenderTextID.getSelectionModel().getSelectedItem().equals("männlich")) {
 			gender = true;
@@ -60,8 +61,16 @@ public class DuckCreateModel {
 			
 			list = DuckTypeRepository.getAllDuckTypes();
 			for (DuckType duckType : list) {
-				TypeTextID.getItems().add(duckType.getName());
+				TypeTextID.getItems().add(duckType);
 			}
+			Callback<ListView<DuckType>, ListCell<DuckType>> cb = new Callback<ListView<DuckType>,ListCell<DuckType>>(){
+				@Override
+				public ListCell<DuckType> call(ListView<DuckType> listDucks){
+					return new DuckTypeViewCell();
+				}
+			};
+			TypeTextID.setButtonCell(cb.call(null));
+			TypeTextID.setCellFactory(cb);
 			GenderTextID.getItems().add("männlich");
 			GenderTextID.getItems().add("weiblich");
 			

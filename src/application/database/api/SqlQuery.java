@@ -100,6 +100,15 @@ public class SqlQuery {
 
 		return rs;
 	}
+	
+	public static void SQL_updateProperties(String tabelle, List<String> properties, List<String> data, String whereStatement) {
+		try {
+			String abfrage = "UPDATE " + SqlConnector.Database + "." + tabelle + " SET " + buidlSetString(properties, data) + " WHERE " + SqlConnector.Database + "." + tabelle + "." + whereStatement + ";";
+			SqlConnector.Connection.createStatement().execute(abfrage);
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
 
 	private static String buildPropertiesString(List<String> properties) {
 		String props = "";
@@ -122,6 +131,18 @@ public class SqlQuery {
 		}
 
 		return true;
+	}
+	
+	private static String buidlSetString(List<String> properties, List<String> data) {
+		String s = "";
+		
+		for (int i = 0; i < properties.size() - 1; i++) {
+			String row = properties.get(i) + " = " + data.get(i) + ", ";
+			s += row;
+		}
+		s += properties.get(properties.size() - 1) + " = " + data.get(properties.size() - 1);
+		
+		return s;
 	}
 
 	private static String buildDataString(List<String> data) {

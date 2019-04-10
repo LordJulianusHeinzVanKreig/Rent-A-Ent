@@ -122,15 +122,8 @@ public class EntenModel  {
 	public void handleOnClickListCustomers(MouseEvent event) {
 		Customer customer = listCustomers.getSelectionModel().getSelectedItem();
 		fillCustomerInformation(customer);
-		try {  // done
-			List<Duck>ducks = DuckRepository.getAllDucksFromCustomer(customer);
-			listDucksOfCustomer.getItems().clear();
-			for (Duck duck : ducks) {
-				listDucksOfCustomer.getItems().add(duck);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
+		refreshDucksForCustomer(customer);
 		
 		listDucksOfCustomer.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
 			@Override
@@ -237,6 +230,18 @@ public class EntenModel  {
 			listDucks.getItems().clear();
 			for (Duck duck : ducks) {
 				listDucks.getItems().add(duck);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void refreshDucksForCustomer(Customer customer) {
+		try {  // done
+			List<Duck>ducks = DuckRepository.getAllDucksFromCustomer(customer);
+			listDucksOfCustomer.getItems().clear();
+			for (Duck duck : ducks) {
+				listDucksOfCustomer.getItems().add(duck);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -365,9 +370,26 @@ public class EntenModel  {
 		}		
 	}
 	
+	/**
+	 * this is the most important function
+	 */
 	@FXML
 	public void onClickRentAEntByCustomer() {
-		
+		Customer selectedCustomer = this.listCustomers.getSelectionModel().getSelectedItem();
+		if(selectedCustomer != null) {
+			try {
+				Stage DuckRentStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/DuckRentView.fxml"));
+				Scene DuckRentScene = new Scene(loader.load());
+				DuckRentStage.setScene(DuckRentScene);
+				DuckRentStage.setTitle("Ente ausleihen");
+				DuckRentStage.show();
+				loader.<DuckRentModel>getController().startDuckRentModel(selectedCustomer);
+				DuckRentStage.setOnCloseRequest(event -> refreshDucksForCustomer(selectedCustomer));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}				
+		}
 	}
 	
 }

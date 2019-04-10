@@ -94,6 +94,27 @@ public class DuckRepository {
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Ducks, props, data);
 	}
 	
+	public static List<Duck> getAllUnrentedDucks() throws SQLException {
+		List<Duck> dts = new LinkedList<Duck>();
+		
+		ResultSet results = SqlQuery.SQL_selectPropertiesWhere(DatabaseMetadata.Tables.Ducks, props, "customerID IS NULL");
+		
+		while(results.next()) {
+			DuckType dt = DuckTypeRepository.getDuckTypeById(results.getInt(7));
+			dts.add(new Duck(results.getInt(1), results.getInt(2), results.getString(3), results.getString(4), results.getInt(5), results.getBoolean(6), dt));
+		}
+		
+		return dts;
+	}
+	
+	public static void giveDuckToCustomer(Duck duck, Customer customer) {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("'" + customer.getId() + "'");
+		LinkedList<String> props = new LinkedList<String>();
+		props.add("customerID");
+		SqlQuery.SQL_updateProperties(DatabaseMetadata.Tables.Ducks, props, data, "ID = " + duck.getId());
+	}
+	
 	public static void deleteDuckbyId(Duck duck) {
 		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Ducks, duck.getId());
 	}
