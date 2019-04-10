@@ -110,9 +110,9 @@ public class SqlQuery {
 		return props;
 	}
 
-	public static boolean SQL_DeletebyID(String tabelle, String whereCondition, int id) {
+	public static boolean SQL_DeletebyID(String tabelle, int id) {
 		boolean rs;
-		String abfrage = "DELETE FROM " + SqlConnector.Database + "." + tabelle + " WHERE " + "ID" + " = " + "" + "1"
+		String abfrage = "DELETE FROM " + SqlConnector.Database + "." + tabelle + " WHERE ID = "  + id
 				+ "" + ";";
 		try {
 			rs = SqlConnector.Connection.createStatement().execute(abfrage);
