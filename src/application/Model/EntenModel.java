@@ -15,6 +15,7 @@ import application.database.entities.Customer;
 import application.database.entities.Duck;
 import application.database.entities.Location;
 import application.database.entities.Worker;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 
 public class EntenModel  {
@@ -213,9 +215,7 @@ public class EntenModel  {
 		}
 	}
 	
-	
-	public void init() {
-		
+	private void reloadLocations() {		
 		try {
 			List<Location>locations = LocationRepository.getAllLocations();
 			listLocations.getItems().clear();
@@ -225,6 +225,11 @@ public class EntenModel  {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void init() {
+		
+		this.reloadLocations();
 		
 		try {
 			List<Customer>customers = CustomerRepository.getAllCustomer();
@@ -254,7 +259,17 @@ public class EntenModel  {
 	
 	@FXML
 	public void onClickLocationCreate() {
-		
+		try {
+			Stage LocationCreateStage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/LocationCreateView.fxml"));
+			Scene LocationCreateScene = new Scene(loader.load());
+			LocationCreateStage.setScene(LocationCreateScene);
+			LocationCreateStage.setTitle("Standort erstellen");
+			LocationCreateStage.show();
+			LocationCreateStage.setOnCloseRequest(event -> this.reloadLocations());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 	
 	@FXML
