@@ -9,13 +9,14 @@ import application.Model.cellFactories.LocationViewCell;
 import application.Model.cellFactories.WorkerViewCell;
 import application.database.api.CustomerRepository;
 import application.database.api.DuckRepository;
+import application.database.api.DuckTypeRepository;
 import application.database.api.LocationRepository;
 import application.database.api.WorkerRepository;
 import application.database.entities.Customer;
 import application.database.entities.Duck;
+import application.database.entities.DuckType;
 import application.database.entities.Location;
 import application.database.entities.Worker;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,7 +25,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 
 public class EntenModel  {
@@ -230,6 +230,27 @@ public class EntenModel  {
 		}
 	}
 	
+	private void refreshDucksOfLocation(Location location) {
+		try {
+			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
+			listDucks.getItems().clear();
+			for (Duck duck : ducks) {
+				listDucks.getItems().add(duck);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void refreshDuckTypes() {
+		try {
+			List<DuckType> duckTypes = DuckTypeRepository.getAllDuckTypes();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public void init() {
 		
 		this.reloadLocations();
@@ -290,18 +311,6 @@ public class EntenModel  {
 		
 	}
 	
-	private void refreshDucksOfLocation(Location location) {
-		try {
-			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
-			listDucks.getItems().clear();
-			for (Duck duck : ducks) {
-				listDucks.getItems().add(duck);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	@FXML
 	public void onClickWorkerForLocationCreate() {
 		
@@ -332,7 +341,7 @@ public class EntenModel  {
 			DuckTypeCreateStage.setScene(DuckTypeCreateScene);
 			DuckTypeCreateStage.setTitle("Ententyp erstellen");
 			DuckTypeCreateStage.show();
-			DuckTypeCreateStage.setOnCloseRequest(event -> this.reloadCustomers());
+			DuckTypeCreateStage.setOnCloseRequest(event -> refreshDuckTypes());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}		
