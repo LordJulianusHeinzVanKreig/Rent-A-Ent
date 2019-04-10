@@ -11,13 +11,13 @@ import application.database.entities.DuckType;
 public class CustomerRepository {
 	private static LinkedList<String> props = new LinkedList<String>() {
 		{
-		props.add("ID");
-		props.add("firstName");
-		props.add("lastName");
-		props.add("houseNumber");
-		props.add("zipCode");
-		props.add("street");
-		props.add("phoneNumber");
+		add("ID");
+		add("firstName");
+		add("lastName");
+		add("houseNumber");
+		add("zipCode");
+		add("street");
+		add("phoneNumber");
 	}
 	};
 
