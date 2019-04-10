@@ -92,6 +92,7 @@ public class EntenModel  {
 				return new DucksOfCustomerViewCell();
 			}
 		});
+		
 		fillLocationInformation(location);
 	}
 	
@@ -290,7 +291,7 @@ public class EntenModel  {
 	@FXML
 	public void onClickDuckForLocationCreate() {
 		
-		Location selectedLocation=	listLocations.getSelectionModel().getSelectedItem();
+		Location selectedLocation = listLocations.getSelectionModel().getSelectedItem();
 
 		if(selectedLocation != null) {
 			try {
