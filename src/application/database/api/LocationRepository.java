@@ -60,6 +60,14 @@ public class LocationRepository {
 		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Locations, props, data);
 	}
 	
+	public static void addLeaderToLocation(Location location, Worker leader) {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("'" + leader.getId() + "'");
+		LinkedList<String> props = new LinkedList<String>();
+		props.add("LeaderID");
+		SqlQuery.SQL_updateProperties(DatabaseMetadata.Tables.Locations, props, data, "ID = " + location.getId());
+	}
+	
 	public static void deleteLocation(Location location) {
 		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Locations, location.getId());
 	}

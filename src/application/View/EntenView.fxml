@@ -53,6 +53,7 @@
                                           <Text fx:id="LocationDetailStreet" layoutX="53.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="30.0" />
                                           <Text fx:id="LocationDetailHouseNumber" layoutX="213.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="30.0" />
                                           <Text fx:id="LocationDetailZipCode" layoutX="334.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                                          <Button layoutX="449.0" layoutY="8.0" mnemonicParsing="false" onAction="#onClickSelectLeader" text="Leiter ändern" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="3.0" />
                                        </children>
                                     </AnchorPane>
                                     <Separator />
@@ -208,7 +209,10 @@
                                        <children>
                                           <AnchorPane>
                                              <children>
-                                                <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+                                                <Text layoutX="77.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font></Text>
                                                 <Button layoutX="125.0" mnemonicParsing="false" onAction="#onClickRentAEntByCustomer" text="Ausleihen" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                              </children>
                                           </AnchorPane>

@@ -67,15 +67,8 @@ public class EntenModel  {
 	@FXML
 	public void handleOnClickListLocations(MouseEvent event) {
 		Location location = listLocations.getSelectionModel().getSelectedItem();
-		try {
-			List<Worker>workers = WorkerRepository.getWorkersfromLocation(location);
-			listWorkers.getItems().clear();
-			for (Worker worker : workers) {
-				listWorkers.getItems().add(worker);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
+		refreshWorkersOfLocation(location);
 		
 		listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
 			@Override
@@ -101,7 +94,11 @@ public class EntenModel  {
 		if(location.getHouseNumber() != null) LocationDetailHouseNumber.setText(location.getHouseNumber());
 		if(location.getStreet() != null) LocationDetailStreet.setText(location.getStreet());
 		LocationDetailZipCode.setText(Integer.toString(location.getZipCode()));
-		if(location.getLeader() != null)LocationDetailLeader.setText(location.getLeader().getFirstName() + " " + location.getLeader().getLastName());
+		if(location.getLeader() != null) {
+			LocationDetailLeader.setText(location.getLeader().getFirstName() + " " + location.getLeader().getLastName());
+		} else {
+			LocationDetailLeader.setText("none");
+		}
 			
 		
 	}
@@ -221,6 +218,18 @@ public class EntenModel  {
 			}
 		} catch (Exception e) {
 			e.getStackTrace();
+		}
+	}
+	
+	private void refreshWorkersOfLocation(Location location) {
+		try {
+			List<Worker>workers = WorkerRepository.getWorkersfromLocation(location);
+			listWorkers.getItems().clear();
+			for (Worker worker : workers) {
+				listWorkers.getItems().add(worker);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -386,6 +395,36 @@ public class EntenModel  {
 				DuckRentStage.show();
 				loader.<DuckRentModel>getController().startDuckRentModel(selectedCustomer);
 				DuckRentStage.setOnCloseRequest(event -> refreshDucksForCustomer(selectedCustomer));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}				
+		}
+	}
+	
+	@FXML
+	public void onClickSelectLeader() {
+		Location selectedLocation = this.listLocations.getSelectionModel().getSelectedItem();
+		if(selectedLocation != null) {
+			try {
+				Stage LeaderSelectStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/LeaderSelectView.fxml"));
+				Scene LeaderSelectScene = new Scene(loader.load());
+				LeaderSelectStage.setScene(LeaderSelectScene);
+				LeaderSelectStage.setTitle("Leiter auswählen");
+				LeaderSelectStage.show();
+				loader.<LeaderSelectModel>getController().startLeaderSelectModel(selectedLocation);
+				LeaderSelectStage.setOnCloseRequest(event -> {
+					reloadLocations();
+					for (Location l : listLocations.getItems()) {
+						if(l.getId() == selectedLocation.getId()) {
+							listLocations.getSelectionModel().select(l);
+							fillLocationInformation(l);
+							refreshDucksOfLocation(l);
+							refreshWorkersOfLocation(l);
+							break;
+						}
+					}
+				});
 			} catch (Exception e) {
 				e.printStackTrace();
 			}				
