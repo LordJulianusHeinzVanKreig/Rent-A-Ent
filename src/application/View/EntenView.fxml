@@ -67,7 +67,7 @@
                                                             <Font size="14.0" />
                                                          </font>
                                                       </Text>
-                                                      <Button mnemonicParsing="false" text="Neuer Ententyp" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="5.0" />
+                                                      <Button mnemonicParsing="false" onAction="#onClickDuckTypeCreate" text="Neuer Ententyp" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="5.0" />
                                                       <Button layoutX="154.0" mnemonicParsing="false" onAction="#onClickDuckForLocationCreate" prefHeight="25.0" prefWidth="39.0" text="Neu" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                                                    </children>
                                                 </AnchorPane>

@@ -67,7 +67,6 @@ public class EntenModel  {
 	@FXML
 	public void handleOnClickListLocations(MouseEvent event) {
 		Location location = listLocations.getSelectionModel().getSelectedItem();
-		listLocations.getSelectionModel().clearSelection();
 		try {
 			List<Worker>workers = WorkerRepository.getWorkersfromLocation(location);
 			listWorkers.getItems().clear();
@@ -85,15 +84,7 @@ public class EntenModel  {
 			}
 		});
 	
-		try {
-			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
-			listDucks.getItems().clear();
-			for (Duck duck : ducks) {
-				listDucks.getItems().add(duck);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		refreshDucksOfLocation(location);
 		
 		listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
 			@Override
@@ -278,6 +269,37 @@ public class EntenModel  {
 	@FXML
 	public void onClickDuckForLocationCreate() {
 		
+		Location selectedLocation=	listLocations.getSelectionModel().getSelectedItem();
+
+		if(selectedLocation != null) {
+			try {
+				Stage DuckCreateStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/DuckCreateView.fxml"));
+				Scene DuckCreateScene = new Scene(loader.load());
+				DuckCreateModel model = loader.<DuckCreateModel>getController();
+//			DuckDetailScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				DuckCreateStage.setScene(DuckCreateScene);
+				DuckCreateStage.show();
+				DuckCreateStage.setTitle("Ente erstellen");
+				DuckCreateStage.setOnCloseRequest(Event -> refreshDucksOfLocation(selectedLocation));
+				model.startDuckCreateStage(selectedLocation);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}
+		
+	}
+	
+	private void refreshDucksOfLocation(Location location) {
+		try {
+			List<Duck>ducks = DuckRepository.getAllDucksFromLocation(location);
+			listDucks.getItems().clear();
+			for (Duck duck : ducks) {
+				listDucks.getItems().add(duck);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
@@ -298,6 +320,22 @@ public class EntenModel  {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	
+	@FXML
+	public void onClickDuckTypeCreate() {
+		try {
+			Stage DuckTypeCreateStage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/DuckTypeCreateView.fxml"));
+			Scene DuckTypeCreateScene = new Scene(loader.load());
+			DuckTypeCreateStage.setScene(DuckTypeCreateScene);
+			DuckTypeCreateStage.setTitle("Ententyp erstellen");
+			DuckTypeCreateStage.show();
+			DuckTypeCreateStage.setOnCloseRequest(event -> this.reloadCustomers());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 	
 	@FXML
