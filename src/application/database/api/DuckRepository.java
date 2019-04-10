@@ -78,4 +78,8 @@ public class DuckRepository {
 		
 		return duck;
 	}
+	
+	public static void deleteDuckbyId(Duck duck) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Ducks, duck.getId());
+	}
 }

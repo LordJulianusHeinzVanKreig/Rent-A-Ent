@@ -52,4 +52,7 @@ public class CustomerRepository {
 
 		return dt;
 	}
+	public static void deleteCustomer(Customer customer) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Customers, customer.getId());
+	}
 }

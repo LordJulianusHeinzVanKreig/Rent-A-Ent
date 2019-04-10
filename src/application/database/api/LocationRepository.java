@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import application.database.entities.Duck;
 import application.database.entities.Location;
 import application.database.entities.Worker;
 
@@ -45,5 +46,8 @@ public class LocationRepository {
 		}
 
 		return dt;
+	}
+	public static void deleteLocation(Location location) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Locations, location.getId());
 	}
 }

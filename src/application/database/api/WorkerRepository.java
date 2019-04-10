@@ -67,5 +67,8 @@ public class WorkerRepository {
 		return dts;
 
 	}
+	public static void deleteWorker(Worker worker) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Workers, worker.getId());
+	}
 
 }

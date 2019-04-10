@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import application.database.entities.Duck;
 import application.database.entities.DuckType;
 
 public class DuckTypeRepository {
@@ -41,5 +42,8 @@ public class DuckTypeRepository {
 		}
 		
 		return dt;
+	}
+	public static void deleteDuckTypebyId(DuckType ducktype) {
+		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.DuckTypes, ducktype.getId());
 	}
 }
