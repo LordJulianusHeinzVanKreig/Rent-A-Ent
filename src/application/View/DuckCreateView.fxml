@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="300.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="300.0">
+               <children>
+                  <AnchorPane prefHeight="28.0" prefWidth="300.0">
+                     <children>
+                        <Text layoutX="91.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enten hinzufügen" wrappingWidth="149.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="372.0" prefWidth="300.0">
+                     <children>
+                        <VBox prefHeight="372.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="NameTextId" layoutX="100.0" layoutY="15.0" />
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alter:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AgeTextId" layoutX="100.0" layoutY="15.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Geschlecht:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <MenuBar fx:id="GenderId" layoutX="115.0" layoutY="15.0">
+                                      <menus>
+                                        <Menu mnemonicParsing="false" text="Auswählen">
+                                          <items>
+                                            <MenuItem mnemonicParsing="false" text="Männlich" />
+                                                <MenuItem mnemonicParsing="false" text="Weiblich" />
+                                          </items>
+                                        </Menu>
+                                      </menus>
+                                    </MenuBar>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Temperament:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="TemperamentTextId" layoutX="138.0" layoutY="15.0" prefHeight="31.0" prefWidth="149.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Typ:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="TypeTextId" layoutX="100.0" layoutY="15.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="DescriptionTextId" layoutX="129.0" layoutY="15.0" prefHeight="31.0" prefWidth="158.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
