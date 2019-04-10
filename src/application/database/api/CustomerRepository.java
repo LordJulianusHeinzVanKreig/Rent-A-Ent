@@ -11,14 +11,14 @@ import application.database.entities.DuckType;
 public class CustomerRepository {
 	private static LinkedList<String> props = new LinkedList<String>() {
 		{
-		props.add("ID");
-		props.add("firstName");
-		props.add("lastName");
-		props.add("houseNumber");
-		props.add("zipCode");
-		props.add("street");
-		props.add("phoneNumber");
-	}
+			add("ID");
+			add("firstName");
+			add("lastName");
+			add("houseNumber");
+			add("zipCode");
+			add("street");
+			add("phoneNumber");
+		}
 	};
 
 	
@@ -51,5 +51,17 @@ public class CustomerRepository {
 		}
 
 		return dt;
+	}
+	
+	public static void addCustomer(Customer customer) throws SQLException {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add(customer.getFirstName());
+		data.add(customer.getLastName());
+		data.add(customer.getHouseNumber());
+		data.add(Integer.toString(customer.getZipCode()));
+		data.add(customer.getStreet());
+		data.add(customer.getPhoneNumber());
+		
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Customers, props.subList(1, props.size()), data);
 	}
 }
