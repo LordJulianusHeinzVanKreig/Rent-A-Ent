@@ -314,21 +314,23 @@ public class EntenModel  {
 	@FXML
 	public void onClickWorkerForLocationCreate() {
 		Location selectedLocation = listLocations.getSelectionModel().getSelectedItem();
-		try {
-			Stage WorkerCreateStage = new Stage();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/WorkerCreateView.fxml"));
-			
-			Scene WorkerCreateScene = new Scene(loader.load());
-			WorkerCreateModel model = loader.<WorkerCreateModel>getController();
-			WorkerCreateStage.setScene(WorkerCreateScene);
-			
-			WorkerCreateStage.setTitle("Mitarbeiter erstellen");
-			WorkerCreateStage.show();
-			WorkerCreateStage.setOnCloseRequest(event -> this.reloadLocations());
-			model.startWorkerCreateStage(selectedLocation);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
+		if(selectedLocation != null) {			
+			try {
+				Stage WorkerCreateStage = new Stage();
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/WorkerCreateView.fxml"));
+				
+				Scene WorkerCreateScene = new Scene(loader.load());
+				WorkerCreateModel model = loader.<WorkerCreateModel>getController();
+				WorkerCreateStage.setScene(WorkerCreateScene);
+				
+				WorkerCreateStage.setTitle("Mitarbeiter erstellen");
+				WorkerCreateStage.show();
+				WorkerCreateStage.setOnCloseRequest(event -> this.reloadLocations());
+				model.startWorkerCreateStage(selectedLocation);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+		}
 	}
 	
 	@FXML
