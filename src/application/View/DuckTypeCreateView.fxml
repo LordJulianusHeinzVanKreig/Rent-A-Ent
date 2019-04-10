@@ -24,7 +24,7 @@
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-                                    <TextField fx:id="NameTextId" layoutX="131.0" layoutY="15.0" prefHeight="15.0" prefWidth="158.0" />
+                                    <TextField fx:id="NameText" layoutX="131.0" layoutY="15.0" prefHeight="15.0" prefWidth="158.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -34,12 +34,12 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AgeTextId" layoutX="131.0" layoutY="15.0" prefHeight="15.0" prefWidth="158.0" />
+                                    <TextField fx:id="BreedTimeText" layoutX="131.0" layoutY="15.0" prefHeight="15.0" prefWidth="158.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="TemperamentTextId" layoutX="131.0" layoutY="15.0" prefHeight="15.0" prefWidth="158.0" />
+                                    <TextField fx:id="RegionText" layoutX="131.0" layoutY="15.0" prefHeight="15.0" prefWidth="158.0" />
                                     <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Region:">
                                        <font>
                                           <Font size="15.0" />
@@ -54,7 +54,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="DescriptionTextId" layoutX="131.0" layoutY="15.0" prefHeight="28.0" prefWidth="158.0" />
+                                    <TextField fx:id="maxAgeText" layoutX="131.0" layoutY="15.0" prefHeight="28.0" prefWidth="158.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
