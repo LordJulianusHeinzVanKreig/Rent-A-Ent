@@ -101,6 +101,7 @@ public class SqlQuery {
 		return rs;
 	}
 	
+	
 	private static String buildPropertiesString(List<String> properties) {
 		String props = "";
 		for (int i = 0; i < properties.size() - 1; i++) {
@@ -108,5 +109,20 @@ public class SqlQuery {
 		}
 		props += properties.get(properties.size()-1);
 		return props;
+	}
+	
+	public static boolean SQL_DeletebyID(String tabelle, String whereCondition, int id) {
+		boolean rs;
+		String abfrage = "DELETE FROM " + SqlConnector.Database + "." + tabelle +" WHERE " + "ID" +" = "+"" +"1" +""+";";
+		try {
+			rs = SqlConnector.Connection.createStatement().execute(abfrage);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return true;
+		
 	}
 }
