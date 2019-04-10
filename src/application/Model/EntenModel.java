@@ -3,6 +3,8 @@ package application.Model;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
+
 import application.Model.cellFactories.CustomerViewCell;
 import application.Model.cellFactories.DucksOfCustomerViewCell;
 import application.Model.cellFactories.LocationViewCell;
@@ -313,7 +315,22 @@ public class EntenModel  {
 	
 	@FXML
 	public void onClickWorkerForLocationCreate() {
-		
+		Location selectedLocation = listLocations.getSelectionModel().getSelectedItem();
+		try {
+			Stage WorkerCreateStage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/WorkerCreateView.fxml"));
+			
+			Scene WorkerCreateScene = new Scene(loader.load());
+			WorkerCreateModel model = loader.<WorkerCreateModel>getController();
+			WorkerCreateStage.setScene(WorkerCreateScene);
+			
+			WorkerCreateStage.setTitle("Mitarbeiter erstellen");
+			WorkerCreateStage.show();
+			WorkerCreateStage.setOnCloseRequest(event -> this.reloadLocations());
+			model.startWorkerCreateStage(selectedLocation);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
 	}
 	
 	@FXML
