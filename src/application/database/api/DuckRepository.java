@@ -79,6 +79,21 @@ public class DuckRepository {
 		return duck;
 	}
 	
+	public static void addDuck(Duck duck, Location location) {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("NULL");
+		data.add("'" + Integer.toString(duck.getAge()) + "'");
+		data.add("'" + duck.getName() + "'");
+		data.add("'" + duck.getDescription() + "'");
+		data.add("'" + Integer.toString(duck.getTemperament()) + "'");
+		data.add(Boolean.toString(duck.isGender()));
+		data.add("'" + Integer.toString(duck.getType().getId()) + "'");
+		data.add("'" + Integer.toString(location.getId()) + "'");
+		data.add("NULL");
+		
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Ducks, props, data);
+	}
+	
 	public static void deleteDuckbyId(Duck duck) {
 		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Ducks, duck.getId());
 	}

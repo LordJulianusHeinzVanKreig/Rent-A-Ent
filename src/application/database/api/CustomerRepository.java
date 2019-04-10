@@ -1,3 +1,4 @@
+
 package application.database.api;
 
 import java.sql.ResultSet;
@@ -11,14 +12,14 @@ import application.database.entities.DuckType;
 public class CustomerRepository {
 	private static LinkedList<String> props = new LinkedList<String>() {
 		{
-		add("ID");
-		add("firstName");
-		add("lastName");
-		add("houseNumber");
-		add("zipCode");
-		add("street");
-		add("phoneNumber");
-	}
+			add("ID");
+			add("firstName");
+			add("lastName");
+			add("houseNumber");
+			add("zipCode");
+			add("street");
+			add("phoneNumber");
+		}
 	};
 
 	
@@ -38,9 +39,6 @@ public class CustomerRepository {
 	}
 
 	public static Customer getCustomerbyID(int id) throws SQLException {
-
-
-
 		Customer dt = null;
 
 		ResultSet results = SqlQuery.SQL_selectByIdWithProperties(DatabaseMetadata.Tables.Customers, id, props);
@@ -52,6 +50,20 @@ public class CustomerRepository {
 
 		return dt;
 	}
+
+	public static void addCustomer(Customer customer) throws SQLException {
+		LinkedList<String> data = new LinkedList<String>();
+		data.add("NULL");
+		data.add("'" + customer.getFirstName() + "'");
+		data.add("'" + customer.getLastName() + "'");
+		data.add("'" + customer.getHouseNumber() + "'");
+		data.add("'" + Integer.toString(customer.getZipCode()) + "'");
+		data.add("'" + customer.getStreet() + "'");
+		data.add("'" + customer.getPhoneNumber() + "'");
+		
+		SqlQuery.SQL_insertProperties(DatabaseMetadata.Tables.Customers, props, data);
+	}
+	
 	public static void deleteCustomer(Customer customer) {
 		SqlQuery.SQL_DeletebyID(DatabaseMetadata.Tables.Customers, customer.getId());
 	}
