@@ -340,7 +340,7 @@ public class EntenModel  {
 				
 				WorkerCreateStage.setTitle("Mitarbeiter erstellen");
 				WorkerCreateStage.show();
-				WorkerCreateStage.setOnCloseRequest(event -> this.reloadLocations());
+				WorkerCreateStage.setOnCloseRequest(event -> this.refreshWorkersOfLocation(selectedLocation));
 				model.startWorkerCreateStage(selectedLocation);
 			} catch (Exception e) {
 				e.printStackTrace();

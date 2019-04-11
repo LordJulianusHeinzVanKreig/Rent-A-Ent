@@ -15,7 +15,10 @@
                <children>
                   <AnchorPane prefHeight="28.0" prefWidth="300.0">
                      <children>
-                        <Text layoutX="91.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arbeiter hinzufügen" wrappingWidth="154.6708984375" />
+                        <Text layoutX="91.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arbeiter hinzufügen" wrappingWidth="154.6708984375">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Text>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -24,13 +27,19 @@
                            <children>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:" />
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vorname:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></Text>
                                     <TextField fx:id="FirstNameText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:" />
+                                    <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nachname:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></Text>
                                     <TextField fx:id="LastNameText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                  </children>
                               </AnchorPane>
@@ -41,7 +50,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AgeText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
+                                    <TextField fx:id="HouseNumberText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -51,7 +60,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="TemperamentText1" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
+                                    <TextField fx:id="ZipCodeText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -61,12 +70,12 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="TemperamentText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
+                                    <TextField fx:id="StreetText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="TypeText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
+                                    <TextField fx:id="phoneNumberText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                     <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tel.Nr.:">
                                        <font>
                                           <Font size="15.0" />
@@ -76,7 +85,7 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="300.0">
                                  <children>
-                                    <TextField fx:id="DescriptionText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
+                                    <TextField fx:id="ageText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                     <Text layoutX="35.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alter:">
                                        <font>
                                           <Font size="15.0" />
@@ -91,12 +100,12 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="DescriptionText1" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
+                                    <TextField fx:id="HoursText" layoutX="132.0" layoutY="15.0" prefHeight="31.0" prefWidth="155.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="Button" layoutX="97.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendOnClick" prefHeight="54.0" prefWidth="300.0" text="OK" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button fx:id="Button" mnemonicParsing="false" onAction="#sendOnClick" prefHeight="25.0" prefWidth="300.0" text="Hinzufügen" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>

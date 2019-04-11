@@ -66,8 +66,7 @@ public class WorkerCreateModel {
 			this.showError("Zip Code hat falsches Format");
 			return;
 		}
-		Worker cu = new Worker(0, FirstNameText.getText(), LastNameText.getText(), HouseNumberText.getText(), zipCode,
-				StreetText.getText(), phoneNumberText.getText(), 40, 40);
+		Worker cu = new Worker(0, FirstNameText.getText(), LastNameText.getText(), HouseNumberText.getText(), zipCode,StreetText.getText(), phoneNumberText.getText(), 40, 40);
 		WorkerRepository.addWorker(cu, Location);
 		Stage s = (Stage) FirstNameText.getScene().getWindow();
 		s.fireEvent(new WindowEvent(s, WindowEvent.WINDOW_CLOSE_REQUEST));
