@@ -68,25 +68,27 @@ public class EntenModel  {
 	public void handleOnClickListLocations(MouseEvent event) {
 		Location location = listLocations.getSelectionModel().getSelectedItem();
 		
-		refreshWorkersOfLocation(location);
-		
-		listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
-			@Override
-			public ListCell<Worker> call(ListView<Worker> listWorkers){
-				return new WorkerViewCell();
-			}
-		});
-	
-		refreshDucksOfLocation(location);
-		
-		listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
-			@Override
-			public ListCell<Duck> call(ListView<Duck> listDucks){
-				return new DucksOfCustomerViewCell();
-			}
-		});
-		
-		fillLocationInformation(location);
+		if(location != null) {
+			refreshWorkersOfLocation(location);
+			
+			listWorkers.setCellFactory(new Callback<ListView<Worker>,ListCell<Worker>>(){
+				@Override
+				public ListCell<Worker> call(ListView<Worker> listWorkers){
+					return new WorkerViewCell();
+				}
+			});
+			
+			refreshDucksOfLocation(location);
+			
+			listDucks.setCellFactory(new Callback<ListView<Duck>,ListCell<Duck>>(){
+				@Override
+				public ListCell<Duck> call(ListView<Duck> listDucks){
+					return new DucksOfCustomerViewCell();
+				}
+			});
+			
+			fillLocationInformation(location);
+		}			
 	}
 	
 	private void fillLocationInformation(Location location) {
