@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Apr 2019 um 20:18
+-- Erstellungszeit: 23. Apr 2019 um 14:43
 -- Server-Version: 10.1.38-MariaDB
 -- PHP-Version: 7.3.3
 
@@ -74,7 +74,9 @@ CREATE TABLE `ducks` (
 
 INSERT INTO `ducks` (`age`, `name`, `description`, `temperament`, `ID`, `gender`, `ducktypeID`, `locationID`, `customerID`) VALUES
 (2, 'Dagobert', 'Hat geld', 12, 1, 0, 1, 1, 4),
-(30000, 'Quaekling', 'Quackt oft', 0, 2, 0, 1, 1, NULL);
+(30000, 'Quaekling', 'Quackt oft', 0, 2, 0, 1, 1, 3),
+(5, 'Track', 'Furzt viel', 10, 9, 1, 1, 1, 4),
+(2, 'Siggi Soße', 'ballert', 2, 10, 1, 3, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,8 @@ CREATE TABLE `ducktype` (
 
 INSERT INTO `ducktype` (`breedTime`, `region`, `maxAge`, `ID`, `Name`) VALUES
 (0, 'Oberpfalz', 12, 1, 'Sehr gemeine Hausente'),
-(1234, 'Erzgebirge Aue', 12345, 2, 'Heinz');
+(1234, 'Erzgebirge Aue', 12345, 2, 'Heinz'),
+(17, 'Erzgebirge Aue', 3, 3, 'Guntersente');
 
 -- --------------------------------------------------------
 
@@ -119,7 +122,8 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`street`, `zipCode`, `houseNumber`, `ID`, `LeaderID`) VALUES
-('Zwiebelstraße', 22, '0', 1, 2);
+('Zwiebelstraße', 22, '0', 1, 2),
+('Kecksemmelstraße', 99999, '1002', 2, 6);
 
 -- --------------------------------------------------------
 
@@ -145,7 +149,11 @@ CREATE TABLE `worker` (
 
 INSERT INTO `worker` (`firstName`, `lastName`, `houseNumber`, `zipCode`, `street`, `phoneNumber`, `ID`, `locationID`) VALUES
 ('Gruebi', 'Arbeitstier', '22', 1, 'Entenweg', '1234', 1, 1),
-('Dechant', 'Herrscher', '2b', 8876, 'Jennerweg', '2', 2, 1);
+('Dechant', 'Herrscher', '2b', 8876, 'Jennerweg', '2', 2, 1),
+('Gunter', 'Zwiebel', '234', 1234, 'elfstraße', '234', 3, 1),
+('Kevin', 'Cool', '21', 93059, 'KCStraße', '123', 4, 1),
+('Domi', 'Zerstörer', '33', 8483, 'Zerstörerstraße', '2344', 5, 1),
+('Fritz', 'VanDick', '34', 8888, 'achtstraße', '08002222222', 6, 2);
 
 --
 -- Indizes der exportierten Tabellen
@@ -200,25 +208,25 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT für Tabelle `ducks`
 --
 ALTER TABLE `ducks`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT für Tabelle `ducktype`
 --
 ALTER TABLE `ducktype`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `location`
 --
 ALTER TABLE `location`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT für Tabelle `worker`
 --
 ALTER TABLE `worker`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints der exportierten Tabellen
